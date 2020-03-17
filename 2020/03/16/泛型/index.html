@@ -23,14 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="即泛指任意类型，又叫参数化类型（ParameterizedType），JDK5的新特性，对具体类型的使用起到辅助作用，类似于方法的参数。（一般是只和集合相结合使用的） 集合类泛型的解释：表示该集合中存放指定类型的元素 例如：给List集合加上泛型String，只能添加字符串类型的数据：List list &#x3D; new ArrayList&lt;&gt;();（JDK7以后后一个尖括号不用写类型，菱">
+  <meta name="description" content="即泛指任意类型，又叫参数化类型（ParameterizedType），JDK5的新特性，对具体类型的使用起到辅助作用，类似于方法的参数。（一般是只和集合相结合使用的） 集合类泛型的解释：表示该集合中存放指定类型的元素 例如：给List集合加上泛型String，只能添加字符串类型的数据：List&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();（JDK7以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型">
 <meta property="og:url" content="http://yoursite.com/2020/03/16/%E6%B3%9B%E5%9E%8B/index.html">
 <meta property="og:site_name" content="王记宗的博客">
-<meta property="og:description" content="即泛指任意类型，又叫参数化类型（ParameterizedType），JDK5的新特性，对具体类型的使用起到辅助作用，类似于方法的参数。（一般是只和集合相结合使用的） 集合类泛型的解释：表示该集合中存放指定类型的元素 例如：给List集合加上泛型String，只能添加字符串类型的数据：List list &#x3D; new ArrayList&lt;&gt;();（JDK7以后后一个尖括号不用写类型，菱">
+<meta property="og:description" content="即泛指任意类型，又叫参数化类型（ParameterizedType），JDK5的新特性，对具体类型的使用起到辅助作用，类似于方法的参数。（一般是只和集合相结合使用的） 集合类泛型的解释：表示该集合中存放指定类型的元素 例如：给List集合加上泛型String，只能添加字符串类型的数据：List&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();（JDK7以">
 <meta property="article:published_time" content="2020-03-16T13:22:27.000Z">
-<meta property="article:modified_time" content="2020-03-16T13:49:28.315Z">
+<meta property="article:modified_time" content="2020-03-17T13:48:32.867Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -195,7 +195,7 @@
         <ul>
 <li>即泛指任意类型，又叫<strong>参数化类型</strong>（ParameterizedType），JDK5的新特性，对具体类型的使用起到辅助作用，类似于方法的参数。（<strong>一般是只和集合相结合使用的</strong>）</li>
 <li>集合类泛型的解释：表示该<strong>集合中存放指定类型的元素</strong><ul>
-<li>例如：给List集合加上泛型String，只能添加字符串类型的数据：<strong>List<String> list = new ArrayList&lt;&gt;();</strong>（JDK7以后后一个尖括号不用写类型，菱形泛型）</li>
+<li>例如：给List集合加上泛型String，只能添加字符串类型的数据：<strong>List&lt;String&gt; list = new ArrayList&lt;&gt;();</strong>（JDK7以后后一个尖括号不用写类型，菱形泛型）</li>
 <li>好处：<strong>类型安全，避免了类型转换</strong><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;不使用泛型的集合</span><br><span class="line">List list1 &#x3D; new ArrayList();</span><br><span class="line">list1.add(&quot;a&quot;);</span><br><span class="line">&#x2F;&#x2F;list1.add(10);	会报类型转换异常</span><br><span class="line">for (Object obj : list1) &#123;</span><br><span class="line">	String s &#x3D; (String)obj;</span><br><span class="line">	System.out.println(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用泛型的集合</span><br><span class="line">List&lt;String&gt; list2 &#x3D; new ArrayList&lt;String&gt;;</span><br><span class="line">list2.add(&quot;bcd&quot;);</span><br><span class="line">&#x2F;&#x2F;list1.add(10);	编译时就不允许传入其他类型</span><br><span class="line">for (String s : list1) &#123;</span><br><span class="line">	System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -304,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/03/17/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          解决博客部署失败问题
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">

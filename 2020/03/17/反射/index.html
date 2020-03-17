@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>王记宗的博客</title>
+  <title>反射 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,10 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王记宗的博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="概述 简介：在程序运行过程中分析类的一种能力 反射的作用： 分析类： 加载并初始化一个类 查看类的所有属性和方法   查看并使用对象： 查看一个对象的所有属性和方法 使用对象的任意属性和方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射">
+<meta property="og:url" content="http://yoursite.com/2020/03/17/%E5%8F%8D%E5%B0%84/index.html">
 <meta property="og:site_name" content="王记宗的博客">
+<meta property="og:description" content="概述 简介：在程序运行过程中分析类的一种能力 反射的作用： 分析类： 加载并初始化一个类 查看类的所有属性和方法   查看并使用对象： 查看一个对象的所有属性和方法 使用对象的任意属性和方法">
+<meta property="article:published_time" content="2020-03-17T10:26:31.000Z">
+<meta property="article:modified_time" content="2020-03-17T15:06:36.002Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -168,34 +172,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-反射" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%BF%90%E7%AE%97/">运算</a>
+    <h1 class="article-title" itemprop="name">
+      反射
     </h1>
   
 
         
-        <a href="/2020/03/13/%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+        <a href="/2020/03/17/%E5%8F%8D%E5%B0%84/" class="archive-article-date">
+  	<time datetime="2020-03-17T10:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="算术运算（-–）"><a href="#算术运算（-–）" class="headerlink" title="算术运算（+ - * / % ++ –）"></a>算术运算（+ - * / % ++ –）</h2><ol>
-<li>整数运算时，永远是精准的，两个整数相除只能得到结果的整数部分。但计算结果如果超出了整数的范围限制，则会溢出（奇怪结果，并非报错），可转型为long。整数运算的结果会自动提升类型，可以强制转型，但可能出错，因此不必为了节省内存使用byte和short。另外，整数可以进行位运算和位移运算。</li>
-<li>自增自减运算在单独使用时，放在变量前后都一样。参与运算时，++n表示先加1再引用n,n++表示先引用n再加1。
-        
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>简介：在程序运行过程中分析类的一种能力</li>
+<li><strong>反射</strong>的作用：<ul>
+<li>分析类：<ul>
+<li>加载并初始化一个类</li>
+<li>查看类的所有属性和方法</li>
+</ul>
+</li>
+<li>查看并使用对象：<ul>
+<li>查看一个对象的所有属性和方法</li>
+<li>使用对象的任意属性和方法<a id="more"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反射的应用场景：<ul>
+<li>构建通用的工具</li>
+<li>搭建具有高度灵活性和扩展性的系统框架</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class对象"><a href="#Class对象" class="headerlink" title="Class对象"></a>Class对象</h2><ul>
+<li><strong>类加载器（ClassLoader）</strong>：负责将<strong>类的字节码文件对象（.class文件）加载到内存中</strong>，并生成对应的<strong>Class对象</strong>（java.lang.Class类的对象，也叫字节码文件对象，每个Class对象对应一个字节码文件）</li>
+<li>类的加载时机（第一次使用类中的成员时，）：<ul>
+<li>创建类的实例，如Student stu = new Student();</li>
+<li>访问类的静态成员，如Calendar.getInstance();</li>
+<li>初始化类的子类，如class User extends Person {}    User user = new User();//先加载父类</li>
+<li>反射方式创建类的Class对象，如Class clazz = Class.forName(“类的正名”);//正名：包名+类名，如cn.itcast.demo1.Student</li>
+</ul>
+</li>
+<li>获取Class对象的三种方式：<ul>
+<li>Object类的getClass()方法：Class clazz = 对象名.getClass();</li>
+<li>类的静态属性：Class clazz = 类名.class;</li>
+<li>Class类的静态方法：Class clazz = Class.forName(“类的正名”);（类的正名快速获取，右击类名，Copy Reference）</li>
+</ul>
+</li>
+</ul>
+<h2 id="反射方式获取构造方法并使用（属于Class类）"><a href="#反射方式获取构造方法并使用（属于Class类）" class="headerlink" title="反射方式获取构造方法并使用（属于Class类）"></a>反射方式获取构造方法并使用（属于Class类）</h2><ul>
+<li><strong>Constructor&lt;T&gt;对象</strong>：构造器对象，属于java.base模块，java.lang.reflect包</li>
+<li>通过Class对象获取<strong>构造器对象</strong>：<ul>
+<li><strong>getConstructor(Class&lt;?&gt;…parameterTypes)</strong>//根据参数列表，返回一个Constructor对象，仅公共构造函数</li>
+<li><strong>getDeclaredConstructor(Class&lt;?&gt;…parameterTypes)</strong>//根据参数列表，返回一个Constructor对象，包含私有构造函数</li>
+<li><strong>getConstructors()</strong>//返回此类所有（不含私有）构造函数的数组</li>
+</ul>
+</li>
+<li>Constructor的常用方法：<ul>
+<li><strong>String getName()</strong>//返回构造器的名字，看是那个类的构造</li>
+<li><strong>T newInstance(Object…initargs)</strong>//使用此构造函数和指定参数创建并初始化对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Constructor con1 &#x3D; clazz.getConstructor();			&#x2F;&#x2F;获取公共的无参构造</span><br><span class="line">Constructor con2 &#x3D; clazz.getConstructor(String.class);		&#x2F;&#x2F;获取公共的带参构造</span><br><span class="line">Constructor con3 &#x3D; clazz.getDeclaredConstructor(int.class);	&#x2F;&#x2F;获取私有的带参构造</span><br><span class="line">Constructor[] cons &#x3D; clazz.getConstructors();			&#x2F;&#x2F;获取所有公共的构造函数</span><br><span class="line">String name &#x3D; con2.getName();		&#x2F;&#x2F;返回Class_reflect.Student</span><br><span class="line">Student stu &#x3D; (Student)con2.newInstance(&quot;张三&quot;);	&#x2F;&#x2F;Object对象需要向下转型</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="反射方式获取成员方法并使用"><a href="#反射方式获取成员方法并使用" class="headerlink" title="反射方式获取成员方法并使用"></a>反射方式获取成员方法并使用</h2><ul>
+<li><strong>Method对象</strong>：方法对象，属于java.base模块，java.lang.reflect包</li>
+<li>通过Class对象获取<strong>方法</strong>：<ul>
+<li><strong>getMethod(String name, Class&lt;?&gt;…parameterTypes)</strong>//返回一个Method对象，仅公共成员方法</li>
+<li><strong>getDeclaredMethod(String, Class&lt;?&gt;…)</strong>//返回一个Method对象，可获取私有成员方法</li>
+<li><strong>getMethods()</strong>//返回此类所有（不含私有方法的数组）</li>
+</ul>
+</li>
+<li>Method常用方法：<ul>
+<li><strong>String getName()</strong>//返回方法名</li>
+<li><strong>Object invoke(Object obj, Object…args)</strong>//在指定对象上调用此方法，参数为args</li>
+<li><strong>setAccessible(boolean flag);</strong>//是否开启暴力反射<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Constructor con &#x3D; clazz.getConstructor();</span><br><span class="line">Student stu &#x3D; (Student)con.newInstance();	&#x2F;&#x2F;获取该类的构造器对象，然后创建对象（调用方法需要通过对象名.的形式）</span><br><span class="line">Method method1 &#x3D; clazz.getMethod(&quot;show1&quot;);	</span><br><span class="line">System.out.printlin(method1.getName());		&#x2F;&#x2F;打印方法名</span><br><span class="line">method1.invoke(stu);		&#x2F;&#x2F;调用公共的空参方法</span><br><span class="line">Method method2 &#x3D; clazz.getMethod(&quot;show2&quot;, int.class)</span><br><span class="line">method2.invoke(stu,100);		&#x2F;&#x2F;调用公共的带参方法</span><br><span class="line">Method method3 &#x3D; clazz.getDeclaredMethod(&quot;show3&quot;, int.class, int.class);</span><br><span class="line">method3.setAccessible(true);		&#x2F;&#x2F;开启暴力反射	</span><br><span class="line">int num &#x3D; (int)method3.invoke(stu,10,20);		&#x2F;&#x2F;调用私有的带参方法</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="反射方式获取成员变量并使用"><a href="#反射方式获取成员变量并使用" class="headerlink" title="反射方式获取成员变量并使用"></a>反射方式获取成员变量并使用</h2><ul>
+<li><strong>Field对象</strong>：域（属性、成员变量）对象，属于java.base模块，java.lang.reflect包</li>
+<li>通过Class对象获取<strong>属性</strong>：<ul>
+<li><strong>getField(String name)</strong>//返回一个Field对象，仅公共属性</li>
+<li><strong>getDeclaredField(String name)</strong>//返回一个Field对象，可获取私有属性</li>
+<li><strong>getDeclaredFields()</strong>//返回此类所有（含私有）属性的数组</li>
+</ul>
+</li>
+<li>Field的常用方法：<ul>
+<li><strong>void set(Object obj, Object value)</strong>//设置obj对象的指定属性值为value</li>
+<li><strong>void setAccessible(boolean flag)</strong>//将此属性的访问性设置为指定布尔值（是否开启暴力反射）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Student stu &#x3D; (Student)clazz.getConstructor().newInstance();	&#x2F;&#x2F;创建类（链式编程）</span><br><span class="line">Field field1 &#x3D; clazz.getField(&quot;name&quot;);</span><br><span class="line">field1.set(stu, &quot;张无忌&quot;);</span><br><span class="line">Field field2 &#x3D; clazz.getDeclaredField(&quot;age&quot;);</span><br><span class="line">field2.setAccessible(true);</span><br><span class="line">field2.set(stu, 30);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢您对我的支持！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -204,16 +318,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/17/%E5%8F%8D%E5%B0%84/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/17/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决博客部署失败问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -228,337 +401,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据类型和变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">数据类型和变量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>数据类型包括基本数据类型和引用数据类型，基本数据类型是CPU可以直接进行运算的类型，引用数据类型有类（class）、接口（interface）、数组（[])等。Java中的基本数据类型如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class对象"><span class="toc-number">2.</span> <span class="toc-text">Class对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反射方式获取构造方法并使用（属于Class类）"><span class="toc-number">3.</span> <span class="toc-text">反射方式获取构造方法并使用（属于Class类）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反射方式获取成员方法并使用"><span class="toc-number">4.</span> <span class="toc-text">反射方式获取成员方法并使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反射方式获取成员变量并使用"><span class="toc-number">5.</span> <span class="toc-text">反射方式获取成员变量并使用</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Java程序基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">Java程序基础</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-03-13T09:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><ul>
-<li>单行注释：<br>// 注释文字</li>
-<li>多行注释：<br>/* 注释文字 */</li>
-<li>文档注释（解释类和方法对象，可自动创建文档）：<br>/** 注释文字 */
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">认识Java</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/" class="archive-article-date">
-  	<time datetime="2020-03-13T05:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java介于编译型语言和解释型语言之间。编译型语言是将代码直接编译成机器码，需要编译出每种平台对应的机器码；解释型语言由解释器加载源码。Java将代码编译成“字节码”，针对不同平台编写虚拟机，虚拟机需要不同平台按照Java虚拟机规范开发。Java代码可以实现一次编写，到处运行。</p>
-<p>Java SE是标准版，也是核心，在此基础上Java EE增加了大量的API和库，以方便开发Web应用、数据库、消息服务等，两者的虚拟机完全相同。Java ME属于“瘦身版“。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Github学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">Github学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-03-12T03:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Github基本概念"><a href="#1-Github基本概念" class="headerlink" title="1.Github基本概念"></a>1.Github基本概念</h3><p>目的：借助github托管项目代码<br>仓库（Repository）：仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目则有多个仓库<br>收藏（Star）：收藏项目，方便下次查看<br>复制克隆项目（Fork）：复制别人的项目，该项目是独立存在的<br>发起请求（Pull request）：改进别人的项目，请求作者合并改进。<br>关注（Watch）：关注某个项目，更新时有通知<br>事务卡片（Issue）：发现BUG，但是目前没有成型代码，需要讨论时使用</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-11T03:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.<strong>标题</strong></p>
-<h1 id="一号标题"><a href="#一号标题" class="headerlink" title="一号标题"></a>一号标题</h1><h2 id="二号标题"><a href="#二号标题" class="headerlink" title="二号标题"></a>二号标题</h2><h3 id="三号标题"><a href="#三号标题" class="headerlink" title="三号标题"></a>三号标题</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -581,8 +449,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

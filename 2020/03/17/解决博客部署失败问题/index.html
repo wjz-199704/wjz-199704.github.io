@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>王记宗的博客</title>
+  <title>解决博客部署失败问题 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,12 +23,19 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王记宗的博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="使用命令hexo d部署博客的时候报错同时发现浏览器中无法访问github主页发现问题：C:\Windows\System32\drivers\etc\hosts文件中之前设置了116.153.38.223    github.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决博客部署失败问题">
+<meta property="og:url" content="http://yoursite.com/2020/03/17/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="王记宗的博客">
+<meta property="og:description" content="使用命令hexo d部署博客的时候报错同时发现浏览器中无法访问github主页发现问题：C:\Windows\System32\drivers\etc\hosts文件中之前设置了116.153.38.223    github.com">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/17/8NemNR.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/17/8N1hB6.jpg">
+<meta property="article:published_time" content="2020-03-17T03:27:39.000Z">
+<meta property="article:modified_time" content="2020-03-17T04:10:41.031Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/17/8NemNR.jpg">
   
     <link rel="alternative" href="/atom.xml" title="王记宗的博客" type="application/atom+xml">
   
@@ -168,34 +175,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-解决博客部署失败问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%BF%90%E7%AE%97/">运算</a>
+    <h1 class="article-title" itemprop="name">
+      解决博客部署失败问题
     </h1>
   
 
         
-        <a href="/2020/03/13/%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+        <a href="/2020/03/17/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-17T03:27:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="算术运算（-–）"><a href="#算术运算（-–）" class="headerlink" title="算术运算（+ - * / % ++ –）"></a>算术运算（+ - * / % ++ –）</h2><ol>
-<li>整数运算时，永远是精准的，两个整数相除只能得到结果的整数部分。但计算结果如果超出了整数的范围限制，则会溢出（奇怪结果，并非报错），可转型为long。整数运算的结果会自动提升类型，可以强制转型，但可能出错，因此不必为了节省内存使用byte和short。另外，整数可以进行位运算和位移运算。</li>
-<li>自增自减运算在单独使用时，放在变量前后都一样。参与运算时，++n表示先加1再引用n,n++表示先引用n再加1。
-        
+        <p>使用命令hexo d部署博客的时候报错<br>同时发现浏览器中无法访问<a href="https://github.com" target="_blank" rel="noopener">github主页</a><br>发现问题：C:\Windows\System32\drivers\etc\hosts文件中之前设置了116.153.38.223    github.com<a id="more"></a><br>解决方案：#号注释掉该行。重新部署，成功！<br><img src="https://s1.ax1x.com/2020/03/17/8NemNR.jpg" alt="hexo d 报错" title="hexo d报错"><br><img src="https://s1.ax1x.com/2020/03/17/8N1hB6.jpg" alt="hosts" title="hosts"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢您对我的支持！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -204,16 +238,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/17/%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/03/17/%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          反射
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/16/%E6%B3%9B%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">泛型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -228,337 +330,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据类型和变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">数据类型和变量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>数据类型包括基本数据类型和引用数据类型，基本数据类型是CPU可以直接进行运算的类型，引用数据类型有类（class）、接口（interface）、数组（[])等。Java中的基本数据类型如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Java程序基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">Java程序基础</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-03-13T09:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><ul>
-<li>单行注释：<br>// 注释文字</li>
-<li>多行注释：<br>/* 注释文字 */</li>
-<li>文档注释（解释类和方法对象，可自动创建文档）：<br>/** 注释文字 */
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">认识Java</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/" class="archive-article-date">
-  	<time datetime="2020-03-13T05:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java介于编译型语言和解释型语言之间。编译型语言是将代码直接编译成机器码，需要编译出每种平台对应的机器码；解释型语言由解释器加载源码。Java将代码编译成“字节码”，针对不同平台编写虚拟机，虚拟机需要不同平台按照Java虚拟机规范开发。Java代码可以实现一次编写，到处运行。</p>
-<p>Java SE是标准版，也是核心，在此基础上Java EE增加了大量的API和库，以方便开发Web应用、数据库、消息服务等，两者的虚拟机完全相同。Java ME属于“瘦身版“。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Github学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">Github学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-03-12T03:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Github基本概念"><a href="#1-Github基本概念" class="headerlink" title="1.Github基本概念"></a>1.Github基本概念</h3><p>目的：借助github托管项目代码<br>仓库（Repository）：仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目则有多个仓库<br>收藏（Star）：收藏项目，方便下次查看<br>复制克隆项目（Fork）：复制别人的项目，该项目是独立存在的<br>发起请求（Pull request）：改进别人的项目，请求作者合并改进。<br>关注（Watch）：关注某个项目，更新时有通知<br>事务卡片（Issue）：发现BUG，但是目前没有成型代码，需要讨论时使用</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-11T03:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.<strong>标题</strong></p>
-<h1 id="一号标题"><a href="#一号标题" class="headerlink" title="一号标题"></a>一号标题</h1><h2 id="二号标题"><a href="#二号标题" class="headerlink" title="二号标题"></a>二号标题</h2><h3 id="三号标题"><a href="#三号标题" class="headerlink" title="三号标题"></a>三号标题</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -581,8 +378,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
