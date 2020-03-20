@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java常用工具 | 王记宗的博客</title>
+  <title>多线程 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,14 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="API1.简介： 应用程序接口，在Java中指的是API文档，通常叫“Java文档”，是Java中提供的类的使用说明书 Java中组件的层次结构：**模块（module）–&gt;包（package）–&gt;类或接口（class&#x2F;interface） module是从Java9起提供的一种Java基础组件，是包的容器 JavaSE Modules：Java语言的核心类库，其名下的模块名多以jav">
+  <meta name="description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java常用工具">
-<meta property="og:url" content="http://yoursite.com/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:title" content="多线程">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="王记宗的博客">
-<meta property="og:description" content="API1.简介： 应用程序接口，在Java中指的是API文档，通常叫“Java文档”，是Java中提供的类的使用说明书 Java中组件的层次结构：**模块（module）–&gt;包（package）–&gt;类或接口（class&#x2F;interface） module是从Java9起提供的一种Java基础组件，是包的容器 JavaSE Modules：Java语言的核心类库，其名下的模块名多以jav">
-<meta property="article:published_time" content="2020-03-16T02:40:08.000Z">
-<meta property="article:modified_time" content="2020-03-20T10:10:28.335Z">
+<meta property="og:description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
+<meta property="article:published_time" content="2020-03-20T06:22:31.000Z">
+<meta property="article:modified_time" content="2020-03-20T14:33:50.796Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -172,305 +172,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常用工具" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-多线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java常用工具
+      多线程
     </h1>
   
 
         
-        <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-  	<time datetime="2020-03-16T02:40:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+        <a href="/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-03-20T06:22:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h3 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h3><ul>
-<li>应用程序接口，在Java中指的是<strong>API文档</strong>，通常叫“Java文档”，是Java中提供的类的使用说明书</li>
-<li>Java中组件的层次结构：**模块（module）–&gt;包（package）–&gt;类或接口（class/interface）</li>
-<li>module是从Java9起提供的一种Java基础组件，是包的容器<ul>
-<li>JavaSE Modules：Java语言的核心类库，其名下的模块名多以java开头</li>
-<li>JDK Modules：Java开发工具相关内容，其名下的模块名多以jdk开头<a id="more"></a>
-
-</li>
+        <h1 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h1><ul>
+<li>并发：指两个或多个事件在同一个时间内发生（<strong>交替执行</strong>）</li>
+<li>并行：指两个或多个事件在同一时刻发生（<strong>同时发生</strong>）</li>
+<li>进程：进入到<strong>内存的应用程序叫进程</strong>，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程</li>
+<li>线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程<a id="more"></a></li>
+<li>线程调度：分时调度（平均分配每个线程占用CPU的时间）和抢占式调度（优先让优先级高的线程使用CPU，java使用抢占式，同一个优先级随机选择一个执行）</li>
+<li>主线程执行main方法</li>
+<li>多线程常用的创建方法有两个：<ul>
+<li>创建Thread类的子类（）：<ul>
+<li>1.创建一个Thread类的子类</li>
+<li>2.在Thread类的子类中重写Thread类中的run方法，设置线程任务（开启线程要做什么）</li>
+<li>3.创建Thread类的子类对象</li>
+<li>4.调用Thread类中的start方法，开启新的线程，执行run方法</li>
 </ul>
 </li>
-</ul>
-<h3 id="2-使用步骤："><a href="#2-使用步骤：" class="headerlink" title="2.使用步骤："></a>2.使用步骤：</h3><ul>
-<li>查找要使用的类</li>
-<li>查看模块，查看包名（如，java.lang包下的可以直接用，其他需要导包）</li>
-<li>查看构造方法（有的类有，有的类没有）</li>
-<li>找到符合需要的方法</li>
-<li>根据构造方法创建对象并使用</li>
-</ul>
-<hr>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h3 id="1-简介：-1"><a href="#1-简介：-1" class="headerlink" title="1.简介："></a>1.简介：</h3><p>简称集，是用来存储多个元素的容器</p>
-<ul>
-<li><p>集合和数组的区别：</p>
-<table>
-<thead>
-<tr>
-<th align="center">区别</th>
-<th align="center">集合</th>
-<th align="center">数组</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">元素类型</td>
-<td align="center">引用类型（存储基本类型时自动装箱）</td>
-<td align="center">基本类型、引用类型</td>
-</tr>
-<tr>
-<td align="center">元素个数</td>
-<td align="center">不固定，可以任意扩容</td>
-<td align="center">固定，不能改变容量</td>
-</tr>
-</tbody></table>
-<p>集合的好处：不受容器大小限制，可以随时添加、删除元素，提供了大量操作元素的方法（判断、获取等）</p>
-</li>
-<li><p>Java集合体系：</p>
-<table>
-<thead>
-<tr>
-<th align="center">单列集合（Collection）</th>
-<th align="center">双列集合（Map:key, value）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">List    、Set</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">ArrayList    、HashSet</td>
-<td align="center">HashMap</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="2-使用："><a href="#2-使用：" class="headerlink" title="2.使用："></a>2.使用：</h3><p>Collection根接口不提供直接实现，提供更具体的子接口实现，使用集合的步骤：</p>
-<ol>
-<li>创建集合对象</li>
-<li>创建元素对象</li>
-<li>将元素对象添加到集合中</li>
-<li>遍历集合<table>
-<thead>
-<tr>
-<th align="center">区分</th>
-<th align="left">List</th>
-<th align="left">Set</th>
-<th align="left">Map</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">特点</td>
-<td align="left">可重复、有序（存取顺序相同）</td>
-<td align="left">不可重复、无序</td>
-<td align="left">双列集合，元素由键值对（Entry）构成：key – value（key不可以重复，value可以重复）</td>
-</tr>
-<tr>
-<td align="center">创建（均可使用泛型）</td>
-<td align="left">List list = new ArrayList();</td>
-<td align="left">Set&lt;T&gt; set = new HashSet&lt;&gt;();</td>
-<td align="left">Map&lt;T1,T2&gt; map = new HashMap&lt;&gt;()</td>
-</tr>
-<tr>
-<td align="center">将数据添加到集合末尾public boolean</td>
-<td align="left">add(E e);</td>
-<td align="left">add(E e);</td>
-<td align="left">put(E e);</td>
-</tr>
-<tr>
-<td align="center">根据索引索取对应元素public E</td>
-<td align="left">get(int index);</td>
-<td align="left">get(int index);</td>
-<td align="left">获取所有key：keySet()</td>
-</tr>
-<tr>
-<td align="center">获取集合长度</td>
-<td align="left">public int size();</td>
-<td align="left">public int size();</td>
-<td align="left">通过key获取value：get()</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><strong>遍历Map集合需要将其转换为单列集合Set，再用迭代器iterator或增强for获取到每一个键，再用get()方法根据键获取值</strong></td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<ul>
-<li><strong>注意</strong>：<ul>
-<li>Set集合保证元素唯一性依赖：<strong>equals()</strong>和<strong>hashCode()</strong>两个方法，如果没有重写这两个方法，默认调用的是<strong>Object类</strong>中的这两个方法，默认比较的是地址值是否相同。</li>
-<li>元素第一次添加，返回null，重复添加，会用新值覆盖旧值，并返回旧值。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-迭代器："><a href="#3-迭代器：" class="headerlink" title="3.迭代器："></a>3.迭代器：</h3><p>对过程的重复成为迭代，迭代器是遍历<strong>单列集合（Collection）</strong>集合的通用方式，可以在对集合<strong>遍历的同时进行添加、删除等操作</strong>（但必须调用<strong>列表迭代器listIterator</strong>，否则会报并发修改异常ConcurrentModificationException）</p>
-<ul>
-<li>迭代器的常用方法：<ul>
-<li>next()：返回迭代的下一个元素对象</li>
-<li>hasNext()：如果仍有元素，返回true</li>
-</ul>
-</li>
-<li><strong>使用步骤</strong>：<ol>
-<li>根据集合对象获取其对象的迭代器对象：<strong>Iterator it = list.iterator();</strong></li>
-<li>判断迭代器中是否有元素:<strong>whlie(it.hasNext()) {}</strong></li>
-<li>如果有就获取元素:<strong>class&lt;?&gt;  = it.next();</strong></li>
-</ol>
-</li>
-</ul>
-<h3 id="4-Collection工具类"><a href="#4-Collection工具类" class="headerlink" title="4.Collection工具类"></a>4.Collection工具类</h3><ul>
-<li>简介：针对集合进行操作的工具类</li>
-<li>常用成员方法：<table>
-<thead>
-<tr>
-<th align="center">成员方法</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">sort(List&lt;T&gt;)</td>
-<td align="left">根据元素的自然顺序，将指定列表按升序排列</td>
-</tr>
-<tr>
-<td align="center">max(Collection&lt;T&gt;)</td>
-<td align="left">返回集合的最大元素</td>
-</tr>
-<tr>
-<td align="center">reverse(List&lt;T&gt;)</td>
-<td align="left">反转List集合元素</td>
-</tr>
-<tr>
-<td align="center">shuffle(List&lt;T&gt;)</td>
-<td align="left">使用默认的随机源置换指定的列表</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<hr>
-<h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1><h3 id="1-异常"><a href="#1-异常" class="headerlink" title="1.异常"></a>1.异常</h3><ul>
-<li>概述：即非正常情况，异常就是程序出现的错误</li>
-<li>分类（Throwable）：<ul>
-<li><strong>异常（Exception）</strong>：合理的应用程序<strong>可能</strong>需要捕获的问题，举例：NullPointerException</li>
-<li>错误（Error）：合理的应用程序<strong>不应该</strong>试图捕获的问题，举例：StackOverflowError</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-异常的处理方式"><a href="#2-异常的处理方式" class="headerlink" title="2.异常的处理方式"></a>2.异常的处理方式</h3><ul>
-<li>JVM默认的处理方式：在控制台打印错误信息，并终止程序</li>
-<li>开发中异常的处理方式：<ul>
-<li>try…catch(finally)：捕获，自己处理</li>
-<li>throws：抛出，交给调用者处理<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try &#123;					&#x2F;&#x2F;出现异常后直接跳到catch</span><br><span class="line">	尝试执行的代码</span><br><span class="line">&#125; catch(Exception e) &#123;</span><br><span class="line">	出现可能的异常之后的处理代码</span><br><span class="line">&#125; finally &#123;				&#x2F;&#x2F;即使try、catch中有return，finally里边的语句也会执行</span><br><span class="line">	一定会执行的代码，比如关闭资源</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void 方法名() throws Exception &#123;		&#x2F;&#x2F;特点：执行结束后，程序不再执行（如果是main函数，会将异常抛给JVM）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-IO流概述"><a href="#3-IO流概述" class="headerlink" title="3.IO流概述"></a>3.IO流概述</h3><p>即输入输出流，IO流指的是数据像连绵的流体一样进行传输，能够在本地磁盘和网络上操作数据</p>
-<ul>
-<li>IO流分类：<ul>
-<li>按数据流向分为<strong>输入流</strong>和<strong>输出流</strong></li>
-<li>按操作方式分为<strong>字节流（InputStream和OutputStream）</strong>及<strong>字符流（Reader和Writer）</strong></li>
-</ul>
-</li>
-<li>IO流体系：<ul>
-<li>字符流：<ul>
-<li>Reader：<ul>
-<li>FileReader（普通字符输入流）</li>
-<li>BufferedReader（高效/缓冲字符输入流）</li>
-</ul>
-</li>
-<li>Writer：<ul>
-<li>FileWriter（普通字符输出流）</li>
-<li>BufferedWriter（高效/缓冲字符输出流）</li>
+<li>创建Runnable接口的实现类：<ul>
+<li>1.创建一个Runnable接口实现类</li>
+<li>2.在实现类中重写run方法，设置线程任务</li>
+<li>3.创建一个Runnable接口的实现类对象</li>
+<li>4.创建Thread对象，构造方法中传递Runnable接口的实现类对象</li>
+<li>5.调用Thread类中的start方法</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>字节流：<ul>
-<li>InputStream：<ul>
-<li>FileInputStream（普通字节输入流）</li>
-<li>BufferedInputStream（高效/缓冲字节输入流）</li>
-</ul>
-</li>
-<li>OutputStream：<ul>
-<li>FileOutputStream（普通字节输出流）</li>
-<li>BufferedOutputStream（高效/缓冲字节输出流）</li>
+<li>Thread类有getName、setName、sleep等方法</li>
+<li>实现Runnable接口创建多线程的好处：<ul>
+<li>1.避免了单继承的局限性（一个类只能继承一个类）</li>
+<li>2.增强了程序的扩展性，降低了程序的耦合性（把设置线程任务和开启新线程分离）</li>
 </ul>
 </li>
 </ul>
-</li>
+<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
+<li>多线程访问了共享的数据，就会产生线程安全的问题</li>
+<li>解决方案：让一个线程在访问共享数据的时候，无论是否失去了CPU的执行权，其他的线程都只能等待当前进程完成后，再执行程序。即保证<strong>使用一个进程执行程序</strong>。</li>
+<li>1.同步代码块：synchronized关键字用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问——<strong>synchronized(同步锁){需要同步的代码块}</strong><ul>
+<li>原理：第一个抢到执行权的线程先检查synchronized代码块是否有锁，有就获取锁，进入到同步中执行，其他线程发现没有锁就会进入阻塞状态，一直等到前者归还锁对象，才进入到同步中执行。</li>
 </ul>
 </li>
+<li>2.同步方法，步骤为：1.把访问了共享数据的代码抽取出来，放到一个方法中。2.在方法上添加synchronized修饰符</li>
+<li>3.Lock锁：使用步骤：1.在成员位置创建一个ReentrantLock对象。2.在可能出现安全问题的代码前调用Lock接口中的Lock获取锁。3.在可能出现安全问题的代码后调用Lock接口中的Lock释放锁</li>
 </ul>
-<h3 id="4-File类"><a href="#4-File类" class="headerlink" title="4.File类"></a>4.File类</h3><p>概述：就是用来操作文件（夹）路径的</p>
-<ul>
-<li>构造方法： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">File file1 &#x3D; new File(&quot;D:&#x2F;abc&#x2F;1.txt&quot;);		&#x2F;&#x2F;方式一：根据字符串形式的路径获取File对象</span><br><span class="line">File file2 &#x3D; new File(&quot;D:&#x2F;abc&quot;,&quot;1.txt&quot;);	&#x2F;&#x2F;方式二：根据字符串形式的父目录及子目录创建File对象</span><br><span class="line">File file3 &#x3D; new File(&quot;D:&#x2F;abc&quot;);</span><br><span class="line">File file4 &#x3D; new File(file3, &quot;1.txt&quot;);		&#x2F;&#x2F;方式三：根据父目录对象，以及字符串形式的子目录来获取File对象</span><br></pre></td></tr></table></figure></li>
-<li>成员方法：<ul>
-<li>创建功能：<ul>
-<li>createNewFile();    创建文件（不存在就创建，返回true，否则不创建返回false）</li>
-<li>mkdir();    创建单级目录</li>
-<li>mkdirs();    创建目录</li>
-</ul>
-</li>
-<li>判断功能：<ul>
-<li>isDirectory();    判断File对象是否为目录</li>
-<li>isFile();    判断File对象是否为文件</li>
-<li>exists();    判断File对象是否存在</li>
+<h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><ul>
+<li>六种状态：<ul>
+<li>NEW（新建状态）–&gt;RUNNABLE（运行状态）/BLOCKED（阻塞状态）–&gt;TERMINATED（死亡状态）</li>
+<li>冻结状态：TIMED_WAITING（休眠状态）/WAITING（无线等待状态）</li>
+<li>Object类（锁对象）中的两个方法（线程之间的通信）：wait()当前线程等待；notify()唤醒等待的单个线程</li>
 </ul>
 </li>
-<li>获取功能：<ul>
-<li>getAbsolutePath()：获取绝对路径（以盘符开头）</li>
-<li>getPath()：获取文件的相对路径（相对当前项目）</li>
-<li>getName()：获取文件名</li>
-<li>list()：获取指定目录下所有文件（夹）名称数组</li>
-<li>listFile()：获取指定目录下所有文件（夹）File数组</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="5-读写文件"><a href="#5-读写文件" class="headerlink" title="5.读写文件"></a>5.读写文件</h3><ul>
-<li>字符流读数据：<ul>
-<li>1.创建字符流读取对象：Reader reader = new FileReader(“readme.txt”);</li>
-<li>2.调用方法读取数据：int data = reader.read();    //读取一个字符，返回该字符代表的整数，若达到流的末尾，返回-1<br>int len = reader(char[] cha);    //一次读一个字符数组，将读取到的内容存入到数组中，并返回读取到的有效字符数，读不到返回-1</li>
-<li>3.异常处理：throws IOException</li>
-<li>4.关闭资源：read.close();<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Reader reader &#x3D; new FileReader(&quot;readme.txt&quot;);</span><br><span class="line">int ch;</span><br><span class="line">while((ch &#x3D; reader.read()) !&#x3D; -1) &#123;</span><br><span class="line">	System.out.println(ch);</span><br><span class="line">&#125;</span><br><span class="line">reader.close();</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char[] chs &#x3D; new char[3];		&#x2F;&#x2F;字符数组的长度最好是1024(计算机底层换算单位)的整数倍</span><br><span class="line">int len;</span><br><span class="line">while((len &#x3D; reader.reader(chs)) !&#x3D; -1) &#123;</span><br><span class="line">	String s &#x3D; new String(chs, 0, len);	&#x2F;&#x2F;要操作的数组，起始索引，要操作的字符数</span><br><span class="line">	System.out.println(s);</span><br><span class="line">&#125;</span><br><span class="line">reader.close();</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>字符流写数据：1.创建字符输出流对象； 2.写数据； 3.释放资源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Writer writer &#x3D; new FileWriter(&quot;lib&#x2F;1.txt&quot;);</span><br><span class="line">writer.write(&#39;好&#39;);			&#x2F;&#x2F;一次写一个字符</span><br><span class="line">char[] chs &#x3D; [&#39;我&#39;,&#39;是&#39;,&#39;王&#39;,&#39;记&#39;,&#39;宗&#39;]；</span><br><span class="line">writer.write(chs, 2, 3);		&#x2F;&#x2F;一次写一个字符数组</span><br><span class="line">writer.write(&quot;好好学习天天向上&quot;);		&#x2F;&#x2F;一次写一个字符串</span><br><span class="line">writer.close();</span><br></pre></td></tr></table></figure></li>
-<li>IO流拷贝文件核心六步：<ol>
-<li>创建字符输入对象，关联数据源文件</li>
-<li>创建字符输出对象，关联目的地对象</li>
-<li>定义变量，记录读取到的内容</li>
-<li>循环读取，只要条件满足就一直读，并将读取到的内容赋值给变量</li>
-<li>将读取到的数据写入到 目的地文件中</li>
-<li>释放资源</li>
-</ol>
-</li>
-<li>字符缓冲流（底层为字符数组）用法（特点：自带缓冲区，大小为8192个字符，也就是<strong>16KB</strong>，<strong>只能拷贝纯文本文件</strong>）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">FileReader fr &#x3D; new FileReader(&quot;lib&#x2F;1.txt&quot;);</span><br><span class="line">BufferedReader br &#x3D; new BufferedReader(fr);	&#x2F;&#x2F;可用BufferedReader br &#x3D; new BufferedReader(new FileReader(&quot;lib&#x2F;1.txt&quot;));代替</span><br><span class="line">FileWriter fw &#x3D; new FileWriter(&quot;&quot;lib&#x2F;2.txt&quot;);</span><br><span class="line">BufferedWriter bw &#x3D; new BufferedWriter(fw);	&#x2F;&#x2F;可用BufferedWriter bw &#x3D; new BufferedWriter(new FileWriter(&quot;lib&#x2F;2.txt&quot;));代替</span><br><span class="line">int len;</span><br><span class="line">while ((len &#x3D; br.read()) !&#x3D; -1) &#123;</span><br><span class="line">	br.write(len);</span><br><span class="line">&#125;</span><br><span class="line">br.close();</span><br><span class="line">bw.close();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;更常用为一次读取一行：</span><br><span class="line">BufferedReader br &#x3D; new BufferedReader(new FileReader(&quot;lib&#x2F;1.txt&quot;));</span><br><span class="line">BufferedWriter bw &#x3D; new BufferedWriter(new FileWriter(&quot;lib&#x2F;2.txt&quot;));</span><br><span class="line">String str;</span><br><span class="line">while((str &#x3D; br.readLine()) !&#x3D; null) &#123;</span><br><span class="line">	bw.write(str);</span><br><span class="line">	bw.newLine();	&#x2F;&#x2F;千万不要忘了换行（该方法可在不同平台上换行）</span><br><span class="line">&#125;</span><br><span class="line">br.close();</span><br><span class="line">bw.close();</span><br></pre></td></tr></table></figure></li>
-<li>字节缓冲流（底层字节数组）用法：（特点：自带缓冲区，大小为8192个字节，也就是<strong>8KB</strong>，<strong>可以拷贝文本、视频、音频、图片等</strong>）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BufferedInputStream bis &#x3D; new BufferedInputStream(new FileInputStream(&quot;lib&#x2F;a.jpg&quot;));</span><br><span class="line">BufferedOutputStream bos &#x3D; new BufferedOutputStream(new FileOutputStream(&quot;lib&#x2F;b.jpg&quot;));</span><br><span class="line">int len;</span><br><span class="line">while((len &#x3D; bis.read()) !&#x3D; -1) &#123;</span><br><span class="line">	bos.write(len);</span><br><span class="line">&#125;</span><br><span class="line">bis.close();</span><br><span class="line">bos.close();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h1><ul>
-<li>java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，常用如下：</li>
-<li>public static double abs(double num)，获取绝对值（多种重载）</li>
-<li>public static double ceil(double num)，向上取整</li>
-<li>public static double floor(double num)，向下取整</li>
-<li>public static long round(double num)，四舍五入</li>
-<li>Math.PI表示近似的圆周率常量</li>
 </ul>
 
       
@@ -561,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -575,18 +345,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java常用类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/16/%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">接口</div>
+    <a href="/2020/03/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -613,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#API"><span class="toc-number">1.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介："><span class="toc-number">1.0.1.</span> <span class="toc-text">1.简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用步骤："><span class="toc-number">1.0.2.</span> <span class="toc-text">2.使用步骤：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集合"><span class="toc-number">2.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介：-1"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用："><span class="toc-number">2.0.2.</span> <span class="toc-text">2.使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-迭代器："><span class="toc-number">2.0.3.</span> <span class="toc-text">3.迭代器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Collection工具类"><span class="toc-number">2.0.4.</span> <span class="toc-text">4.Collection工具类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IO流"><span class="toc-number">3.</span> <span class="toc-text">IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-异常"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-异常的处理方式"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.异常的处理方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-IO流概述"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.IO流概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-File类"><span class="toc-number">3.0.4.</span> <span class="toc-text">4.File类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-读写文件"><span class="toc-number">3.0.5.</span> <span class="toc-text">5.读写文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Math类"><span class="toc-number">4.</span> <span class="toc-text">Math类</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多线程"><span class="toc-number">1.</span> <span class="toc-text">实现多线程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程安全"><span class="toc-number">2.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程状态"><span class="toc-number">3.</span> <span class="toc-text">线程状态</span></a></li></ol>
                     </div>
                 </span>
             </div>

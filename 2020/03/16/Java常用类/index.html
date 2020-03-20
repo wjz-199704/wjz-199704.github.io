@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="王记宗的博客">
 <meta property="og:description" content="Object类 简介：java.base模块下java.lang包下的Object普通类。类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，因此，所有类都是一个Object（对象）。 构造方法：Object():构造一个对象，所有子类对象初始化时都会优先调用该方法 常用成员方法： int hashCode(): 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一">
 <meta property="article:published_time" content="2020-03-16T04:19:09.000Z">
-<meta property="article:modified_time" content="2020-03-16T11:30:00.489Z">
+<meta property="article:modified_time" content="2020-03-20T03:36:48.885Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -237,7 +237,7 @@
 <li><strong>boolean isEmpty()</strong>：判断给定字符串是否为空</li>
 </ul>
 </li>
-<li>在实际开发中，String类非常常用，每次new很麻烦，优化后免new：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s &#x3D; &quot;abc&quot;;</span><br></pre></td></tr></table></figure></li>
+<li>在实际开发中，String类非常常用，每次new很麻烦，优化后免new：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s &#x3D; &quot;abc&quot;;	&#x2F;&#x2F;还能实现池数据的自动保存，如果再有相同数据定义时，可以减少对象的产生，以提升操作性能</span><br><span class="line">&#x2F;&#x2F;new String(&quot;abc&quot;)会创建两个对象实例，且不会在池中自动保存</span><br></pre></td></tr></table></figure></li>
 <li>String类的获取功能（成员方法）：<ul>
 <li><strong>int length()</strong>:获取当前字符串的长度</li>
 <li><strong>char charAt(int index)</strong>:获取指定索引位置的字符</li>
@@ -349,6 +349,20 @@
 <li><p>成员方法：<strong>static 基本类型 parseXxx(String)</strong>：<strong>将字符串类型的数据转换成对应的基本类型</strong>（主要解决这一种需求）</p>
 </li>
 <li><p>注意：除了Character类以外，其他的7种包装类都有parseXXX()方法，因为字符串想转换成char类型的数据，可以通过String类中的toCharArray()或charAt()方法</p>
+</li>
+</ul>
+<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><ul>
+<li>public static long currentTimeMillis();返回以毫秒为单位的当前时间</li>
+<li>public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length);将数组中指定的数据拷贝到另一个数组中<ul>
+<li>参数：<ul>
+<li>src - 源数组</li>
+<li>srcPos - 源数组中的起始位置（起始索引）</li>
+<li>dest - 目标数组</li>
+<li>destPos - 目标数组中的起始位置</li>
+<li>length - 要复制的数组元素的数量</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -492,7 +506,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object类"><span class="toc-number">1.</span> <span class="toc-text">Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaBean重写Object类的方法"><span class="toc-number">1.1.</span> <span class="toc-text">JavaBean重写Object类的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scanner类"><span class="toc-number">2.</span> <span class="toc-text">Scanner类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String类"><span class="toc-number">3.</span> <span class="toc-text">String类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和StringBuffer类"><span class="toc-number">4.</span> <span class="toc-text">StringBuilder和StringBuffer类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date和Calendar类"><span class="toc-number">5.</span> <span class="toc-text">Date和Calendar类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Random类的简单使用"><span class="toc-number">6.</span> <span class="toc-text">Random类的简单使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本类型的包装类"><span class="toc-number">7.</span> <span class="toc-text">基本类型的包装类</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object类"><span class="toc-number">1.</span> <span class="toc-text">Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaBean重写Object类的方法"><span class="toc-number">1.1.</span> <span class="toc-text">JavaBean重写Object类的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scanner类"><span class="toc-number">2.</span> <span class="toc-text">Scanner类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String类"><span class="toc-number">3.</span> <span class="toc-text">String类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和StringBuffer类"><span class="toc-number">4.</span> <span class="toc-text">StringBuilder和StringBuffer类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date和Calendar类"><span class="toc-number">5.</span> <span class="toc-text">Date和Calendar类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Random类的简单使用"><span class="toc-number">6.</span> <span class="toc-text">Random类的简单使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本类型的包装类"><span class="toc-number">7.</span> <span class="toc-text">基本类型的包装类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#System类"><span class="toc-number">8.</span> <span class="toc-text">System类</span></a></li></ol>
                     </div>
                 </span>
             </div>
