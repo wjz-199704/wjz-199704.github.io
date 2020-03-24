@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程 | 王记宗的博客</title>
+  <title>函数式接口 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,14 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
+  <meta name="description" content="概念函数式接口在java中指：有且仅有一个抽象方法的接口Java中函数式编程的体现就是Lambda，有且仅有一个抽象方法，Lambda才能顺利地进行推导，Lambda可以被当做是匿名内部类的“语法糖”（但原理不完全相同，Lambda表达式可以少加载class文件）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:title" content="函数式接口">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="王记宗的博客">
-<meta property="og:description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
-<meta property="article:published_time" content="2020-03-20T06:22:31.000Z">
-<meta property="article:modified_time" content="2020-03-21T12:44:21.569Z">
+<meta property="og:description" content="概念函数式接口在java中指：有且仅有一个抽象方法的接口Java中函数式编程的体现就是Lambda，有且仅有一个抽象方法，Lambda才能顺利地进行推导，Lambda可以被当做是匿名内部类的“语法糖”（但原理不完全相同，Lambda表达式可以少加载class文件）。">
+<meta property="article:published_time" content="2020-03-24T07:45:55.000Z">
+<meta property="article:modified_time" content="2020-03-24T14:28:32.617Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -172,79 +172,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-函数式接口" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程
+      函数式接口
     </h1>
   
 
         
-        <a href="/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-03-20T06:22:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-03-24T07:45:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h1><ul>
-<li>并发：指两个或多个事件在同一个时间内发生（<strong>交替执行</strong>）</li>
-<li>并行：指两个或多个事件在同一时刻发生（<strong>同时发生</strong>）</li>
-<li>进程：进入到<strong>内存的应用程序叫进程</strong>，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程</li>
-<li>线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程<a id="more"></a></li>
-<li>线程调度：分时调度（平均分配每个线程占用CPU的时间）和抢占式调度（优先让优先级高的线程使用CPU，java使用抢占式，同一个优先级随机选择一个执行）</li>
-<li>主线程执行main方法</li>
-<li>多线程常用的创建方法有两个：<ul>
-<li>创建Thread类的子类（）：<ul>
-<li>1.创建一个Thread类的子类</li>
-<li>2.在Thread类的子类中重写Thread类中的run方法，设置线程任务（开启线程要做什么）</li>
-<li>3.创建Thread类的子类对象</li>
-<li>4.调用Thread类中的start方法，开启新的线程，执行run方法</li>
-</ul>
-</li>
-<li>创建Runnable接口的实现类：<ul>
-<li>1.创建一个Runnable接口实现类</li>
-<li>2.在实现类中重写run方法，设置线程任务</li>
-<li>3.创建一个Runnable接口的实现类对象</li>
-<li>4.创建Thread对象，构造方法中传递Runnable接口的实现类对象</li>
-<li>5.调用Thread类中的start方法</li>
-</ul>
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>函数式接口在java中指：<strong>有且仅有一个抽象方法的接口</strong><br>Java中函数式编程的体现就是Lambda，有且仅有一个抽象方法，Lambda才能顺利地进行推导，Lambda可以被当做是匿名内部类的“语法糖”（但原理不完全相同，Lambda表达式可以少加载class文件）。</p>
+<a id="more"></a>
+<h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 interface 接口名称 &#123;</span><br><span class="line">	public	abstract 返回值类型 方法名称（可选参数信息）;</span><br><span class="line">	&#x2F;&#x2F;其他非抽象方法内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数式接口的使用：一般可以作为方法的参数和返回值类型，传递接口的实现类对象，传递接口的匿名内部类（或Lambda）。</p>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="Lambda的延时执行"><a href="#Lambda的延时执行" class="headerlink" title="Lambda的延时执行"></a>Lambda的延时执行</h2><ul>
+<li>有些场景的代码执行后，结果不一定会被使用，从而造成性能浪费。而Lambda表达式是延迟执行的，这正好可以作为解决方案，提升性能。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void showLog(int level, MessageBuilder mb) &#123;</span><br><span class="line">	if (level &#x3D;&#x3D; 1) &#123;</span><br><span class="line">		System.out.println(mb.builderMessage());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String mag1 &#x3D; &quot;1&quot;;</span><br><span class="line">	String mag2 &#x3D; &quot;2&quot;;</span><br><span class="line">	String mag3 &#x3D; &quot;3&quot;;</span><br><span class="line"></span><br><span class="line">	showLog(2, () -&gt; &#123;</span><br><span class="line">		System.out.println(&quot;不满足条件不执行&quot;);</span><br><span class="line">		return mag1 + mag2 + mag3;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
+<h2 id="常用函数式接口"><a href="#常用函数式接口" class="headerlink" title="常用函数式接口"></a>常用函数式接口</h2><ul>
+<li><p>java.util.function.<strong>Supplier<T></strong> 接口仅包含一个无参的方法： <strong>T get() **。用来获取一个泛型参数指定类型的对象数据。由于这是一个函数式接口，这也就意味着对应的Lambda表达式需要“</strong>对外提供**”一个符合泛型类型的对象数据。</p>
 </li>
-<li>Thread类有getName、setName、sleep等方法</li>
-<li>实现Runnable接口创建多线程的好处：<ul>
-<li>1.避免了单继承的局限性（一个类只能继承一个类）</li>
-<li>2.增强了程序的扩展性，降低了程序的耦合性（把设置线程任务和开启新线程分离）</li>
-</ul>
+<li><p>java.util.function.<strong>Consumer<T></strong> 接口则正好与Supplier接口相反，它不是生产一个数据，而是<strong>消费一个数据</strong>，其数据类型由泛型决定。抽象方法<strong>void accept(T t)</strong>，意为消费一个指定泛型的数据，自定义如何消费。</p>
 </li>
-</ul>
-<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
-<li>多线程访问了共享的数据，就会产生线程安全的问题</li>
-<li>解决方案：让一个线程在访问共享数据的时候，无论是否失去了CPU的执行权，其他的线程都只能等待当前进程完成后，再执行程序。即保证<strong>使用一个进程执行程序</strong>。</li>
-<li>1.同步代码块：synchronized关键字用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问——<strong>synchronized(同步锁){需要同步的代码块}</strong><ul>
-<li>原理：第一个抢到执行权的线程先检查synchronized代码块是否有锁，有就获取锁，进入到同步中执行，其他线程发现没有锁就会进入阻塞状态，一直等到前者归还锁对象，才进入到同步中执行。</li>
-</ul>
+<li><p>Consumer的默认方法：如果一个方法的参数和返回值全都是Consumer 类型，那么就可以实现效果：消费数据的时候，首先做一个操作，然后再做一个操作，<strong>实现组合</strong>。而这个方法就是Consumer 接口中的default方法<strong>andThen</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static Integer getMax(Supplier&lt;Integer&gt; sup) &#123;</span><br><span class="line">	return sup.get();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	int[] arr &#x3D; &#123;110, 55, 66, 88, 99, 488, 156, 193&#125;;</span><br><span class="line">	Integer max1 &#x3D; getMax(() -&gt; &#123;</span><br><span class="line">		int max &#x3D; arr[0];</span><br><span class="line">		for (int i : arr) &#123;</span><br><span class="line">			if (i &gt; max) &#123;</span><br><span class="line">				max &#x3D; i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return max;</span><br><span class="line">	&#125;);</span><br><span class="line">	System.out.println(&quot;数组中元素最大值：&quot; + max1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void method(String s, Consumer&lt;String&gt; con1, Consumer&lt;String&gt; con2) &#123;</span><br><span class="line">&#x2F;&#x2F;        con1.accept(s);</span><br><span class="line">&#x2F;&#x2F;        con1.accept(s);</span><br><span class="line">	con1.andThen(con2).accept(s);</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	method(&quot;Hello&quot;, (string)-&gt; System.out.println(string.toUpperCase()),</span><br><span class="line">			(s)-&gt; System.out.println(s.toLowerCase()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>2.同步方法，步骤为：1.把访问了共享数据的代码抽取出来，放到一个方法中。2.在方法上添加synchronized修饰符</li>
-<li>3.Lock锁：使用步骤：1.在成员位置创建一个ReentrantLock对象。2.在可能出现安全问题的代码前调用Lock接口中的Lock获取锁。3.在可能出现安全问题的代码后调用Lock接口中的Lock释放锁</li>
-</ul>
-<h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><ul>
-<li>六种状态：<ul>
-<li>NEW（新建状态）–&gt;RUNNABLE（运行状态）/BLOCKED（阻塞状态）–&gt;TERMINATED（死亡状态）</li>
-<li>冻结状态：TIMED_WAITING（休眠状态）/WAITING（无线等待状态）</li>
-<li>Object类（锁对象）中的两个方法（线程之间的通信）：wait()当前线程等待；notify()唤醒等待的单个线程</li>
-</ul>
+<li><p>有时候我们需要<strong>对某种类型的数据进行判断</strong>，从而得到一个boolean值结果。这时可以使用java.util.function.<strong>Predicate<T> **接口中的抽象方法：</strong>boolean test(T t)**。</p>
 </li>
-</ul>
-<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><ul>
-<li>如果使用线程的时候就去创建一个，虽然方便，但是存在问题：如果线程数量很多，且每次执行时间很短的任务，这样<strong>频繁创建线程会大大降低系统效率</strong>，java中可以通过<strong>线程池</strong>来复用线程。</li>
-<li>JDK1.5之后内置了线程池，可以直接使用static ExecutorService newFixedThreadPool​(int nThreads) 创建一个线程池，该池重用在共享的无界队列中运行的固定数量的线程。 </li>
+<li><p>既然是条件判断，就会存在与、或、非三种常见的逻辑关系。其中将两个Predicate 条件使用“<strong>与</strong>”逻辑连接起来实现“并且”的效果时，可以使用<strong>default方法and **。与and 的“与”类似，</strong>默认方法or** 实现逻辑关系中的“<strong>或</strong>”。“与”、“或”已经了解了，<strong>默认方法negate</strong>的“<strong>非</strong>”（取反）也会简单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static ArrayList&lt;String&gt; filter(String[] strings, Predicate&lt;String&gt; pre1, Predicate&lt;String&gt; pre2)&#123;</span><br><span class="line">	ArrayList&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">	for (String string : strings) &#123;</span><br><span class="line">		boolean b &#x3D; pre1.and(pre2).test(string);</span><br><span class="line">		if (b) &#123;</span><br><span class="line">			list.add(string);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String[] arr &#x3D; &#123;&quot;迪丽热巴,女&quot;, &quot;古力娜扎,女&quot;, &quot;马尔扎哈,男&quot;, &quot;赵丽颖,女&quot;&#125;;</span><br><span class="line">	ArrayList&lt;String&gt; list &#x3D; filter(arr, (s) -&gt;s.split(&quot;,&quot;)[1].equals(&quot;女&quot;), (s) -&gt;s.split(&quot;,&quot;)[0].length() &#x3D;&#x3D; 4);</span><br><span class="line">	System.out.println(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>java.util.function.<strong>Function&lt;T,R&gt;</strong> 接口用来根据一个类型的数据得到另一个类型的数据，前者称为<strong>前置条件</strong>，后者称为<strong>后置条件</strong>。Function 接口中最主要的抽象方法为：<strong>R apply(T t) ，根据类型T的参数获取类型R的结果</strong>。使用的场景例如：将String 类型转换为Integer 类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static int change(String s, Function&lt;String, Integer&gt; function)&#123;</span><br><span class="line">	&#x2F;&#x2F;Integer integer &#x3D; function.apply(s);</span><br><span class="line">	int in &#x3D; function.apply(s); &#x2F;&#x2F;自动拆箱</span><br><span class="line">	return in;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	int i &#x3D; change(&quot;100&quot;, (s) -&gt; Integer.parseInt(s));</span><br><span class="line">	System.out.println(i + 10);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Function 接口中有一个<strong>默认的andThen 方法</strong>，用来进行组合操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static int change(String s, Function&lt;String, String&gt; function1,</span><br><span class="line">						 Function&lt;String, Integer&gt; function2,</span><br><span class="line">						 Function&lt;Integer, Integer&gt; function3) &#123;</span><br><span class="line">	Integer integer &#x3D; function1.andThen(function2).andThen(function3).apply(s);</span><br><span class="line">	return integer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str &#x3D; &quot;赵丽颖，20&quot;;</span><br><span class="line">	int change &#x3D; change(str, (s) -&gt; s.split(&quot;，&quot;)[1], (s) -&gt; Integer.parseInt(s), (i) -&gt; i + 100);</span><br><span class="line">	System.out.println(change);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -335,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/21/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Lambda表达式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
+    <a href="/2020/03/22/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络编程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +352,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多线程"><span class="toc-number">1.</span> <span class="toc-text">实现多线程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程安全"><span class="toc-number">2.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程状态"><span class="toc-number">3.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程池"><span class="toc-number">4.</span> <span class="toc-text">线程池</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#格式"><span class="toc-number">2.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数式编程"><span class="toc-number">3.</span> <span class="toc-text">函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda的延时执行"><span class="toc-number">3.1.</span> <span class="toc-text">Lambda的延时执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用函数式接口"><span class="toc-number">3.2.</span> <span class="toc-text">常用函数式接口</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

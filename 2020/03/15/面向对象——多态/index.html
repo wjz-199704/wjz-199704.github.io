@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="王记宗的博客">
 <meta property="og:description" content="多态的概述 即多种状态，同一对象在不同情况下表现出不同的状态或行为。（针对某个类型的方法调用，其真正执行的方法取决于运行时期实际类型的方法） 实现多态的步骤： 要有继承（或实现）关系 要有方法重写 父类引用指向子类对象（is a关系）   使用场景：父类型作为形参的数据类型，可以接收任意子类对象">
 <meta property="article:published_time" content="2020-03-15T08:04:58.000Z">
-<meta property="article:modified_time" content="2020-03-18T09:43:11.466Z">
+<meta property="article:modified_time" content="2020-03-22T02:34:26.648Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -258,7 +258,7 @@
 </ul>
 </li>
 <li>static修饰成员方法（<strong>静态方法</strong>）<ul>
-<li>静态方法中没有对象this，所以不能访问非静态成员（非静态成员是对象的，new对象时才会存在）</li>
+<li>静态方法中没有对象this，所以<strong>不能访问非静态成员（非静态成员是对象的，new对象时才会存在）</strong></li>
 <li>使用场景：只需要访问静态成员，不需要访问对象状态，所有参数都有参数列表显示提供（即<strong>想通过类名.的方式调用，而不是通过对象名.的方式调用</strong>）<table>
 <thead>
 <tr>

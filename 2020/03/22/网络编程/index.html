@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程 | 王记宗的博客</title>
+  <title>网络编程 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,14 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
+  <meta name="description" content="网络编程入门软件结构 C&#x2F;S结构：Client&#x2F;Server结构，客户端和服务器结构  B&#x2F;S结构：Browser&#x2F;Server结构，浏览器和服务器结构  都离不开网络支持，网络编程是在一定协议下，实现两台计算机的通讯的程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:title" content="网络编程">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="王记宗的博客">
-<meta property="og:description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
-<meta property="article:published_time" content="2020-03-20T06:22:31.000Z">
-<meta property="article:modified_time" content="2020-03-21T12:44:21.569Z">
+<meta property="og:description" content="网络编程入门软件结构 C&#x2F;S结构：Client&#x2F;Server结构，客户端和服务器结构  B&#x2F;S结构：Browser&#x2F;Server结构，浏览器和服务器结构  都离不开网络支持，网络编程是在一定协议下，实现两台计算机的通讯的程序">
+<meta property="article:published_time" content="2020-03-22T04:47:59.000Z">
+<meta property="article:modified_time" content="2020-03-24T07:41:23.957Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -172,81 +172,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-网络编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程
+      网络编程
     </h1>
   
 
         
-        <a href="/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-03-20T06:22:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2020/03/22/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-03-22T04:47:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h1><ul>
-<li>并发：指两个或多个事件在同一个时间内发生（<strong>交替执行</strong>）</li>
-<li>并行：指两个或多个事件在同一时刻发生（<strong>同时发生</strong>）</li>
-<li>进程：进入到<strong>内存的应用程序叫进程</strong>，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程</li>
-<li>线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程<a id="more"></a></li>
-<li>线程调度：分时调度（平均分配每个线程占用CPU的时间）和抢占式调度（优先让优先级高的线程使用CPU，java使用抢占式，同一个优先级随机选择一个执行）</li>
-<li>主线程执行main方法</li>
-<li>多线程常用的创建方法有两个：<ul>
-<li>创建Thread类的子类（）：<ul>
-<li>1.创建一个Thread类的子类</li>
-<li>2.在Thread类的子类中重写Thread类中的run方法，设置线程任务（开启线程要做什么）</li>
-<li>3.创建Thread类的子类对象</li>
-<li>4.调用Thread类中的start方法，开启新的线程，执行run方法</li>
-</ul>
+        <h1 id="网络编程入门"><a href="#网络编程入门" class="headerlink" title="网络编程入门"></a>网络编程入门</h1><h2 id="软件结构"><a href="#软件结构" class="headerlink" title="软件结构"></a>软件结构</h2><ul>
+<li><p>C/S结构：Client/Server结构，客户端和服务器结构</p>
 </li>
-<li>创建Runnable接口的实现类：<ul>
-<li>1.创建一个Runnable接口实现类</li>
-<li>2.在实现类中重写run方法，设置线程任务</li>
-<li>3.创建一个Runnable接口的实现类对象</li>
-<li>4.创建Thread对象，构造方法中传递Runnable接口的实现类对象</li>
-<li>5.调用Thread类中的start方法</li>
-</ul>
+<li><p>B/S结构：Browser/Server结构，浏览器和服务器结构</p>
 </li>
-</ul>
+<li><p>都离不开网络支持，<strong>网络编程</strong>是在一定协议下，实现两台计算机的通讯的程序</p>
+<a id="more"></a>
+<h2 id="网络通信协议"><a href="#网络通信协议" class="headerlink" title="网络通信协议"></a>网络通信协议</h2></li>
+<li><p>网络通信协议对数据的传输格式、传输速率、传输步骤等做了统一规定，通信双方必须同时遵守才能完成数据交换</p>
 </li>
-<li>Thread类有getName、setName、sleep等方法</li>
-<li>实现Runnable接口创建多线程的好处：<ul>
-<li>1.避免了单继承的局限性（一个类只能继承一个类）</li>
-<li>2.增强了程序的扩展性，降低了程序的耦合性（把设置线程任务和开启新线程分离）</li>
+<li><p>TCP/IP协议：Internet最基本、最广泛的协议。采用了4层的分层模型：应用层、传输层、网络层、链路层</p>
+<ul>
+<li>链路层：物理传输通道，通常是对网络连接设备的驱动协议，例如光线、网线的驱动</li>
+<li>网络层：是整个TCP/IP协议的核心，主要用于将传输的数据进行分组，将分组数据发送到目标计算机或网络</li>
+<li>传输层：主要使网络程序进行通信，在进行网络通信时，可以采用TCP或UDP协议</li>
+<li>应用层：主要负责应用程序的协议，例如HTTP协议、FTP协议等</li>
+</ul>
+<h2 id="UDP-TCP协议"><a href="#UDP-TCP协议" class="headerlink" title="UDP/TCP协议"></a>UDP/TCP协议</h2><ul>
+<li>UDP（User Datagram Protocol）协议：<ul>
+<li>是<strong>无连接通信协议</strong>，数据传输时，发送端和接收端不建立逻辑连接，发送端不确认接收端是否存在就会发送，接收端收到数据也不用反馈</li>
+<li>UDP协议消耗资源小，通信效率高，通常用于音频、视频通话和普通数据的传输，这种情况偶尔丢失一两个数据包，不会对接收结果产生太大影响</li>
+<li>由于其无连接性，不能保证数据的完整性，因此重要数据不建议使用</li>
+<li>特点：数据被限制在64kb以内，超出范围就不能发送了</li>
 </ul>
 </li>
 </ul>
-<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
-<li>多线程访问了共享的数据，就会产生线程安全的问题</li>
-<li>解决方案：让一个线程在访问共享数据的时候，无论是否失去了CPU的执行权，其他的线程都只能等待当前进程完成后，再执行程序。即保证<strong>使用一个进程执行程序</strong>。</li>
-<li>1.同步代码块：synchronized关键字用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问——<strong>synchronized(同步锁){需要同步的代码块}</strong><ul>
-<li>原理：第一个抢到执行权的线程先检查synchronized代码块是否有锁，有就获取锁，进入到同步中执行，其他线程发现没有锁就会进入阻塞状态，一直等到前者归还锁对象，才进入到同步中执行。</li>
-</ul>
 </li>
-<li>2.同步方法，步骤为：1.把访问了共享数据的代码抽取出来，放到一个方法中。2.在方法上添加synchronized修饰符</li>
-<li>3.Lock锁：使用步骤：1.在成员位置创建一个ReentrantLock对象。2.在可能出现安全问题的代码前调用Lock接口中的Lock获取锁。3.在可能出现安全问题的代码后调用Lock接口中的Lock释放锁</li>
-</ul>
-<h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><ul>
-<li>六种状态：<ul>
-<li>NEW（新建状态）–&gt;RUNNABLE（运行状态）/BLOCKED（阻塞状态）–&gt;TERMINATED（死亡状态）</li>
-<li>冻结状态：TIMED_WAITING（休眠状态）/WAITING（无线等待状态）</li>
-<li>Object类（锁对象）中的两个方法（线程之间的通信）：wait()当前线程等待；notify()唤醒等待的单个线程</li>
+<li><p>TCP（Transmission Control Protocol）协议：</p>
+<ul>
+<li><strong>面向连接</strong>的通信协议，传输数据前，在发送端和接收端建立逻辑连接，然后传输数据，提供两台计算机之间可靠无差错的数据传输，应用广泛，如下载文件、浏览网页等</li>
+<li>每次连接的创建都需要经过“三次握手”以保证连接的可靠<ul>
+<li>第一次握手：客户端向服务器端发出连接请求报文段，该报文段的头部中SYN=1,ACK=0（表示连接请求报文）,seq=x（字节流的初始序号）。请求发送后，客户端进入SYN-SENT状态。</li>
+<li>第二次握手：服务器端收到请求，向客户端回送一个响应：SYN=1,ACK=1(同意连接报文),seq=y（服务器端作为发送者时，发送字节流的初始序号）,ack=x+1（希望下一个数据报发送序号从x+1开始），服务器进入SYN-RCVD状态。</li>
+<li>第三次握手：客户端接收到同意连接的应答的同时，还要向服务器发送确认报文段:ACK=1,seq=x+1，ack=y+1，此时进入ESTABLISHED状态，连接建立完成。</li>
+<li>为什么是三次，不是两次或四次？：两次的情况下，服务器端对客户端得到起始序列号做了确认，但是客户端并没有确认服务器端的起始序列号。同时三次握手能防止失效的连接请求被服务器端接收，而产生错误。如果是四次握手可以把第二三次合成一步完成，提高连接的速度和效率。</li>
+<li>也就是说，通信双方要互相确认对方的起始序列号，客户端向服务器端请求，服务器端响应，确认的是客户端的起始序列号，服务器端向客户端请求，客户端响应，确认的是服务器的的起始序列号，把二三步合并，服务器既确认客户端的请求，同时发送自己的请求，即为三次握手。</li>
 </ul>
 </li>
 </ul>
-<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><ul>
-<li>如果使用线程的时候就去创建一个，虽然方便，但是存在问题：如果线程数量很多，且每次执行时间很短的任务，这样<strong>频繁创建线程会大大降低系统效率</strong>，java中可以通过<strong>线程池</strong>来复用线程。</li>
-<li>JDK1.5之后内置了线程池，可以直接使用static ExecutorService newFixedThreadPool​(int nThreads) 创建一个线程池，该池重用在共享的无界队列中运行的固定数量的线程。 </li>
+</li>
 </ul>
-
+<h2 id="IP地址和端口号"><a href="#IP地址和端口号" class="headerlink" title="IP地址和端口号"></a>IP地址和端口号</h2><ul>
+<li>IP地址：互联网协议地址，相当于“电话号码”<ul>
+<li>IPv4：是一个32位二进制数，通常被分为4个字节，表示成a.b.c.d的形式（a、b、c、d都是0~255之间的十进制数），如192.168.65.100。最多可以表示42亿个。</li>
+<li>IPv6：有16个字节，128位地址，每16个字节一组，分成8组十六进制数，表示成ABCD:EF01:235:6789:ABCD:EF01:2345:6789,号称可以为全世界每一粒沙子编上地址。</li>
+</ul>
+</li>
+<li>端口号：<strong>IP地址唯一标识设备，端口号唯一标识设备中的进程</strong>，端口号是用<strong>两个字节（16位二进制数）</strong>表示的整数，取值范围<strong>0~65535</strong>。利用协议+IP地址+端口号三元组合，就可以标识网络中的进程，实现进程间的交互。<ul>
+<li>网络软件一打开，系统就会随机分配一个随机的端口号，或者向系统要指定的端口号</li>
+<li><strong>1024之前</strong>的端口号，已经被系统分配给已知网络软件了，软件的端口号不能重复，所以<strong>不能使用</strong></li>
+<li>常用端口号：80端口（网络端口）；数据库——MySQL：3306、Oracle：1521；Tomcat：8080</li>
+</ul>
+</li>
+</ul>
+<h1 id="TCP通信程序"><a href="#TCP通信程序" class="headerlink" title="TCP通信程序"></a>TCP通信程序</h1><h1 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h1><ul>
+<li>TCP通信能实现两台计算机之间的数据交互，通信的两端，要严格区分为客户端（Client）与服务端（Server）。<br>两端通信时步骤：<ul>
+<li>1.服务端程序，需要事先启动，等待客户端的连接。</li>
+<li>2.客户端主动连接服务器端，连接成功才能通信。服务端不可以主动连接客户端。</li>
+</ul>
+</li>
+<li>在Java中，提供了两个类用于实现TCP通信程序：<ul>
+<li>1.<strong>客户端： java.net.Socket 类</strong>表示。创建Socket 对象，向服务端发出连接请求，服务端响应请求，两者建<br>立连接开始通信。</li>
+<li>2.<strong>服务端： java.net.ServerSocket 类</strong>表示。创建ServerSocket 对象，相当于开启一个服务，并等待客户端<br>的连接。</li>
+</ul>
+</li>
+<li>连接中包含的对象是<strong>IO字节流对象</strong>（不仅有字符串），客户端与服务器端进行一个数据交互需要<strong>4个IO流对象</strong>，服务器端使用accept方法获取不同客户端对象，且使用客户端的流和客户端交互。</li>
+<li>客户端：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.创建一个客户端对象Socket，构造方法绑定服务器的IP地址和端口号</span><br><span class="line">Socket socket &#x3D; new Socket(&quot;39.***.**.**&quot;, 22);</span><br><span class="line">&#x2F;&#x2F;2.使用Socket对象中的我getOutputStream()方法获取网络字节输出流对象</span><br><span class="line">OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">&#x2F;&#x2F;3.使用网络字节输出流OutputStream对象中的方法write，给服务器发送数据</span><br><span class="line">os.write(&quot;你好服务器&quot;.getBytes());</span><br><span class="line">&#x2F;&#x2F;4.使用Socket对象中的方法getInputStream()获取网络字节输入流InputStream对象</span><br><span class="line">InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">&#x2F;&#x2F;5.使用网络字节输入流InputStream对象中的方法read，读取服务器回写的数据</span><br><span class="line">byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">int len &#x3D; is.read(bytes);</span><br><span class="line">System.out.println(new String(bytes,0,len));</span><br><span class="line">&#x2F;&#x2F;6.释放资源</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure></li>
+<li>服务器端：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.创建服务器对象，指定端口号</span><br><span class="line">ServerSocket server &#x3D; new ServerSocket(8888);</span><br><span class="line">&#x2F;&#x2F;2.使用ServerSocket对象中的accept方法，获取到请求的客户端对象Socket</span><br><span class="line">Socket socket &#x3D; server.accept();</span><br><span class="line">&#x2F;&#x2F;3.获取网络字节输入流对象</span><br><span class="line">InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">&#x2F;&#x2F;4.read方法读取客户端发送的数据</span><br><span class="line">byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">int len &#x3D; is.read(bytes);</span><br><span class="line">System.out.println(new String(bytes,0,len));</span><br><span class="line">&#x2F;&#x2F;5.获取网络字节输出流对象</span><br><span class="line">OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">&#x2F;&#x2F;6.write方法回写数据</span><br><span class="line">os.write(&quot;收到谢谢&quot;.getBytes());</span><br><span class="line">&#x2F;&#x2F;7.释放资源</span><br><span class="line">socket.close();</span><br><span class="line">server.close();</span><br></pre></td></tr></table></figure></li>
+<li>注意：<ul>
+<li>1.客户端和服务器进行交互，必须使用Socket中提供的网络流，不能使用自己创建的流对象</li>
+<li>2.当我们创建客户端对象Socket的时候，就会去请求服务器和服务器经过3次握手建立连接通路。这时如果服务器没有启动，就会抛出异常</li>
+</ul>
+</li>
+</ul>
+<h1 id="文件上传案例"><a href="#文件上传案例" class="headerlink" title="文件上传案例"></a>文件上传案例</h1><h2 id="CS客户端与服务器"><a href="#CS客户端与服务器" class="headerlink" title="CS客户端与服务器"></a>CS客户端与服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        &#x2F;&#x2F;1.</span><br><span class="line">        FileInputStream fis &#x3D; new FileInputStream(&quot;E:\\IdeaProjects\\SeniorOperator\\src\\cn\\itheima\\demo17TCP\\1.jpg&quot;);</span><br><span class="line">        &#x2F;&#x2F;2.</span><br><span class="line">        Socket socket &#x3D; new Socket(&quot;192.168.1.100&quot;, 8888);</span><br><span class="line">        &#x2F;&#x2F;3.</span><br><span class="line">        OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">        &#x2F;&#x2F;4.</span><br><span class="line">        int len &#x3D; 0;</span><br><span class="line">        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">        while ((len &#x3D; fis.read(bytes)) !&#x3D; -1)&#123;</span><br><span class="line">            &#x2F;&#x2F;5.</span><br><span class="line">            os.write(bytes, 0, len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;*</span><br><span class="line">            解决：上传完文件，给服务器写一个结束标记</span><br><span class="line">            void shutdownOutput() 禁用此套接字的输出流</span><br><span class="line">         *&#x2F;</span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;6.</span><br><span class="line">        InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">        &#x2F;&#x2F;7.</span><br><span class="line">        while ((len &#x3D; is.read(bytes)) !&#x3D; -1)&#123;</span><br><span class="line">            System.out.println(new String(bytes, 0, len));</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;8.</span><br><span class="line">        fis.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        &#x2F;&#x2F;1.</span><br><span class="line">        ServerSocket serverSocket &#x3D; new ServerSocket(8888);</span><br><span class="line">        &#x2F;&#x2F;2.</span><br><span class="line">        &#x2F;&#x2F;优化：一直接收客户端socket</span><br><span class="line">        while (true) &#123;</span><br><span class="line">            Socket socket &#x3D; serverSocket.accept();</span><br><span class="line">            &#x2F;&#x2F;优化：开启多线程接收</span><br><span class="line">            new Thread(() -&gt; &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    &#x2F;&#x2F;3.</span><br><span class="line">                    InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">                    &#x2F;&#x2F;4</span><br><span class="line">                    File destination &#x3D; new File(&quot;E:\\IdeaProjects\\SeniorOperator\\src\\transform&quot;);</span><br><span class="line">                    if (!destination.exists()) &#123;</span><br><span class="line">                        destination.mkdir();</span><br><span class="line">                    &#125;</span><br><span class="line">                    String fileName &#x3D; &quot;itcast&quot; + System.currentTimeMillis() + new Random().nextInt(99999) + &quot;.jpg&quot;;</span><br><span class="line">                    &#x2F;&#x2F;5.</span><br><span class="line">                    FileOutputStream os &#x3D; new FileOutputStream(destination + &quot;\\&quot; + fileName);</span><br><span class="line">                    &#x2F;&#x2F;优化：设置接收超时时间</span><br><span class="line">                    socket.setSoTimeout(3000);</span><br><span class="line">                    try &#123;</span><br><span class="line">                        int len &#x3D; 0;</span><br><span class="line">                        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">                        while ((len &#x3D; is.read(bytes)) !&#x3D; -1) &#123;</span><br><span class="line">                            &#x2F;&#x2F;7.</span><br><span class="line">                            os.write(bytes, 0, len);</span><br><span class="line">                        &#125;</span><br><span class="line">                        &#x2F;&#x2F;9.</span><br><span class="line">                        socket.getOutputStream().write(&quot;上传成功&quot;.getBytes());</span><br><span class="line">                        &#x2F;&#x2F;10</span><br><span class="line">                        socket.close();</span><br><span class="line">                        os.close();</span><br><span class="line">                    &#125; catch (IOException e) &#123;</span><br><span class="line">                        &#x2F;&#x2F;8.</span><br><span class="line">                        OutputStream os2 &#x3D; socket.getOutputStream();</span><br><span class="line">                        &#x2F;&#x2F;9.</span><br><span class="line">                        os2.write(&quot;超时了&quot;.getBytes());</span><br><span class="line">                        &#x2F;&#x2F;10</span><br><span class="line">                        socket.close();</span><br><span class="line">                        os.close();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; catch (IOException e) &#123;</span><br><span class="line">                    System.out.println(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;6.</span><br><span class="line">        &#x2F;&#x2F;优化：服务器不用关</span><br><span class="line">        &#x2F;&#x2F;serverSocket.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BS浏览器服务器"><a href="#BS浏览器服务器" class="headerlink" title="BS浏览器服务器"></a>BS浏览器服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        ServerSocket server &#x3D; new ServerSocket(8080);</span><br><span class="line"></span><br><span class="line">        &#x2F;*</span><br><span class="line">            浏览器解析服务器回写的HTML页面，页面中如果有图片，那么浏览器就会单独的开启一个线程，读取服务器的图片</span><br><span class="line">            我们需要让服务器一直处于监听状态，客户端请求一次，服务器回写一次</span><br><span class="line">         *&#x2F;</span><br><span class="line">        while (true)&#123;</span><br><span class="line">            Socket socket &#x3D; server.accept();</span><br><span class="line">            new Thread(new Runnable() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void run() &#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">                        BufferedReader bis &#x3D; new BufferedReader(new InputStreamReader(is));</span><br><span class="line">                        &#x2F;*int len &#x3D; 0;</span><br><span class="line">                        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">                        while ((len &#x3D; is.read(bytes)) !&#x3D; -1)&#123;</span><br><span class="line">                            System.out.println(new String(bytes, 0, len));</span><br><span class="line">                        &#125;*&#x2F;</span><br><span class="line">                        String line &#x3D; bis.readLine();</span><br><span class="line">                        System.out.println(line);</span><br><span class="line">                        String[] s &#x3D; line.split(&quot; &quot;);</span><br><span class="line">                        String htmlpath &#x3D; s[1];</span><br><span class="line">                        FileInputStream fis &#x3D; new FileInputStream(&quot;E:\\IdeaProjects&quot; + htmlpath);</span><br><span class="line">                        OutputStream ops &#x3D; socket.getOutputStream();</span><br><span class="line"></span><br><span class="line">                        &#x2F;&#x2F;写入http协议响应头，固定写法</span><br><span class="line">                        ops.write(&quot;HTTP&#x2F;1.1 200 OK\r\n&quot;.getBytes());</span><br><span class="line">                        ops.write(&quot;Content-Type:text&#x2F;html\r\n&quot;.getBytes());</span><br><span class="line">                        &#x2F;&#x2F;必须要写入空行，否则浏览器不解析</span><br><span class="line">                        ops.write(&quot;\r\n&quot;.getBytes());</span><br><span class="line"></span><br><span class="line">                        int len;</span><br><span class="line">                        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">                        while ((len &#x3D; fis.read(bytes)) !&#x3D; -1)&#123;</span><br><span class="line">                            ops.write(bytes, 0, len);</span><br><span class="line">                        &#125;</span><br><span class="line">                        fis.close();</span><br><span class="line">                        socket.close();</span><br><span class="line">                        &#x2F;&#x2F;server.close();</span><br><span class="line">                        bis.close();</span><br><span class="line">                    &#125;catch (IOException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -335,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/22/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +371,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/21/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Lambda表达式
+          函数式接口
         
       </div>
     </a>
   
   
-    <a href="/2020/03/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
+    <a href="/2020/03/22/%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">序列化流</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +409,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多线程"><span class="toc-number">1.</span> <span class="toc-text">实现多线程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程安全"><span class="toc-number">2.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程状态"><span class="toc-number">3.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程池"><span class="toc-number">4.</span> <span class="toc-text">线程池</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络编程入门"><span class="toc-number">1.</span> <span class="toc-text">网络编程入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#软件结构"><span class="toc-number">1.1.</span> <span class="toc-text">软件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络通信协议"><span class="toc-number">1.2.</span> <span class="toc-text">网络通信协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-TCP协议"><span class="toc-number">1.3.</span> <span class="toc-text">UDP&#x2F;TCP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP地址和端口号"><span class="toc-number">1.4.</span> <span class="toc-text">IP地址和端口号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP通信程序"><span class="toc-number">2.</span> <span class="toc-text">TCP通信程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概述："><span class="toc-number">3.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传案例"><span class="toc-number">4.</span> <span class="toc-text">文件上传案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CS客户端与服务器"><span class="toc-number">4.1.</span> <span class="toc-text">CS客户端与服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BS浏览器服务器"><span class="toc-number">4.2.</span> <span class="toc-text">BS浏览器服务器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

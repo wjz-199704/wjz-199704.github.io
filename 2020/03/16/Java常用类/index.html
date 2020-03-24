@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="王记宗的博客">
 <meta property="og:description" content="Object类 简介：java.base模块下java.lang包下的Object普通类。类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，因此，所有类都是一个Object（对象）。 构造方法：Object():构造一个对象，所有子类对象初始化时都会优先调用该方法 常用成员方法： int hashCode(): 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一">
 <meta property="article:published_time" content="2020-03-16T04:19:09.000Z">
-<meta property="article:modified_time" content="2020-03-20T03:36:48.885Z">
+<meta property="article:modified_time" content="2020-03-24T14:13:16.614Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -283,7 +283,9 @@
 <li><strong>long getTime()</strong>:将日期对象转换成对应时间的毫秒值</li>
 <li><strong>static Calendar getInstance()</strong>:根据当前系统时区和语言环境获取日历对象</li>
 <li><strong>int get(int field)</strong>:返回给定日历字段的值（Java中使用0-11表示月份，对应1-12）</li>
-<li><strong>void set(int field, int value)</strong>:将给定的日历字段设置为指定的值</li>
+<li><strong>void set(int field, int value)</strong>:将给定的日历字段设置为指定的值<figure class="highlight plain"><figcaption><span>date </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(date);</span><br><span class="line">String format &#x3D; DateFormat.getInstance().format(new Date());		&#x2F;&#x2F;Tue Mar 24 22:11:08 CST 2020</span><br><span class="line">System.out.println(format);		&#x2F;&#x2F;2020&#x2F;3&#x2F;24 下午10:11</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 </li>
 </ul>
@@ -364,6 +366,7 @@
 </li>
 </ul>
 </li>
+<li>System.setOut(PrintStream out)方法可以改变打印流的目的地</li>
 </ul>
 
       

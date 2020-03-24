@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程 | 王记宗的博客</title>
+  <title>王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,14 +23,10 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="多线程">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="王记宗的博客">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="王记宗的博客">
-<meta property="og:description" content="实现多线程 并发：指两个或多个事件在同一个时间内发生（交替执行） 并行：指两个或多个事件在同一时刻发生（同时发生） 进程：进入到内存的应用程序叫进程，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程 线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程">
-<meta property="article:published_time" content="2020-03-20T06:22:31.000Z">
-<meta property="article:modified_time" content="2020-03-21T12:44:21.569Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -172,114 +168,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-认识Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      多线程
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">认识Java</a>
     </h1>
   
 
         
-        <a href="/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-03-20T06:22:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/" class="archive-article-date">
+  	<time datetime="2020-03-13T05:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h1><ul>
-<li>并发：指两个或多个事件在同一个时间内发生（<strong>交替执行</strong>）</li>
-<li>并行：指两个或多个事件在同一时刻发生（<strong>同时发生</strong>）</li>
-<li>进程：进入到<strong>内存的应用程序叫进程</strong>，每个进程都有独立的内存空间，一个应用程序可以同时执行多个进程</li>
-<li>线程：线程是进程中的一个执行单元，一个进程中至少有一个线程，可以有多个线程<a id="more"></a></li>
-<li>线程调度：分时调度（平均分配每个线程占用CPU的时间）和抢占式调度（优先让优先级高的线程使用CPU，java使用抢占式，同一个优先级随机选择一个执行）</li>
-<li>主线程执行main方法</li>
-<li>多线程常用的创建方法有两个：<ul>
-<li>创建Thread类的子类（）：<ul>
-<li>1.创建一个Thread类的子类</li>
-<li>2.在Thread类的子类中重写Thread类中的run方法，设置线程任务（开启线程要做什么）</li>
-<li>3.创建Thread类的子类对象</li>
-<li>4.调用Thread类中的start方法，开启新的线程，执行run方法</li>
-</ul>
-</li>
-<li>创建Runnable接口的实现类：<ul>
-<li>1.创建一个Runnable接口实现类</li>
-<li>2.在实现类中重写run方法，设置线程任务</li>
-<li>3.创建一个Runnable接口的实现类对象</li>
-<li>4.创建Thread对象，构造方法中传递Runnable接口的实现类对象</li>
-<li>5.调用Thread类中的start方法</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Thread类有getName、setName、sleep等方法</li>
-<li>实现Runnable接口创建多线程的好处：<ul>
-<li>1.避免了单继承的局限性（一个类只能继承一个类）</li>
-<li>2.增强了程序的扩展性，降低了程序的耦合性（把设置线程任务和开启新线程分离）</li>
-</ul>
-</li>
-</ul>
-<h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><ul>
-<li>多线程访问了共享的数据，就会产生线程安全的问题</li>
-<li>解决方案：让一个线程在访问共享数据的时候，无论是否失去了CPU的执行权，其他的线程都只能等待当前进程完成后，再执行程序。即保证<strong>使用一个进程执行程序</strong>。</li>
-<li>1.同步代码块：synchronized关键字用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问——<strong>synchronized(同步锁){需要同步的代码块}</strong><ul>
-<li>原理：第一个抢到执行权的线程先检查synchronized代码块是否有锁，有就获取锁，进入到同步中执行，其他线程发现没有锁就会进入阻塞状态，一直等到前者归还锁对象，才进入到同步中执行。</li>
-</ul>
-</li>
-<li>2.同步方法，步骤为：1.把访问了共享数据的代码抽取出来，放到一个方法中。2.在方法上添加synchronized修饰符</li>
-<li>3.Lock锁：使用步骤：1.在成员位置创建一个ReentrantLock对象。2.在可能出现安全问题的代码前调用Lock接口中的Lock获取锁。3.在可能出现安全问题的代码后调用Lock接口中的Lock释放锁</li>
-</ul>
-<h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><ul>
-<li>六种状态：<ul>
-<li>NEW（新建状态）–&gt;RUNNABLE（运行状态）/BLOCKED（阻塞状态）–&gt;TERMINATED（死亡状态）</li>
-<li>冻结状态：TIMED_WAITING（休眠状态）/WAITING（无线等待状态）</li>
-<li>Object类（锁对象）中的两个方法（线程之间的通信）：wait()当前线程等待；notify()唤醒等待的单个线程</li>
-</ul>
-</li>
-</ul>
-<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><ul>
-<li>如果使用线程的时候就去创建一个，虽然方便，但是存在问题：如果线程数量很多，且每次执行时间很短的任务，这样<strong>频繁创建线程会大大降低系统效率</strong>，java中可以通过<strong>线程池</strong>来复用线程。</li>
-<li>JDK1.5之后内置了线程池，可以直接使用static ExecutorService newFixedThreadPool​(int nThreads) 创建一个线程池，该池重用在共享的无界队列中运行的固定数量的线程。 </li>
-</ul>
-
+        <h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java介于编译型语言和解释型语言之间。编译型语言是将代码直接编译成机器码，需要编译出每种平台对应的机器码；解释型语言由解释器加载源码。Java将代码编译成“字节码”，针对不同平台编写虚拟机，虚拟机需要不同平台按照Java虚拟机规范开发。Java代码可以实现一次编写，到处运行。</p>
+<p>Java SE是标准版，也是核心，在此基础上Java EE增加了大量的API和库，以方便开发Web应用、数据库、消息服务等，两者的虚拟机完全相同。Java ME属于“瘦身版“。</p>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢您对我的支持！<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -288,84 +203,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/21/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Lambda表达式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/03/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -380,32 +227,144 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多线程"><span class="toc-number">1.</span> <span class="toc-text">实现多线程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程安全"><span class="toc-number">2.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程状态"><span class="toc-number">3.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程池"><span class="toc-number">4.</span> <span class="toc-text">线程池</span></a></li></ol>
-                    </div>
-                </span>
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Github学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">Github学习</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-03-12T03:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Github基本概念"><a href="#1-Github基本概念" class="headerlink" title="1.Github基本概念"></a>1.Github基本概念</h3><p>目的：借助github托管项目代码<br>仓库（Repository）：仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目则有多个仓库<br>收藏（Star）：收藏项目，方便下次查看<br>复制克隆项目（Fork）：复制别人的项目，该项目是独立存在的<br>发起请求（Pull request）：改进别人的项目，请求作者合并改进。<br>关注（Watch）：关注某个项目，更新时有通知<br>事务卡片（Issue）：发现BUG，但是目前没有成型代码，需要讨论时使用</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/12/Github%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
             </div>
         </div>
+        
         
     </div>
 </aside>
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
+    </h1>
   
 
+        
+        <a href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2020-03-11T03:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.<strong>标题</strong></p>
+<h1 id="一号标题"><a href="#一号标题" class="headerlink" title="一号标题"></a>一号标题</h1><h2 id="二号标题"><a href="#二号标题" class="headerlink" title="二号标题"></a>二号标题</h2><h3 id="三号标题"><a href="#三号标题" class="headerlink" title="三号标题"></a>三号标题</h3>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -428,8 +387,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
