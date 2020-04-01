@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>王记宗的博客</title>
+  <title>Stream流和方法引用 | 王记宗的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,10 +23,14 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王记宗的博客">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="获取Stream流 获取一个流非常简单，有以下几种常用的方式： 所有的Collection **集合都可以通过stream 默认方法获取流；default Stream stream​()**。但Map集合不是Collection的子接口。 Stream 接口的静态方法of **可以获取数组对应的流。static  Stream of​(T… values)**。参数是一个可变参数,那么我们就可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stream流和方法引用">
+<meta property="og:url" content="http://yoursite.com/2020/03/25/Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/index.html">
 <meta property="og:site_name" content="王记宗的博客">
+<meta property="og:description" content="获取Stream流 获取一个流非常简单，有以下几种常用的方式： 所有的Collection **集合都可以通过stream 默认方法获取流；default Stream stream​()**。但Map集合不是Collection的子接口。 Stream 接口的静态方法of **可以获取数组对应的流。static  Stream of​(T… values)**。参数是一个可变参数,那么我们就可以">
+<meta property="article:published_time" content="2020-03-25T02:08:45.000Z">
+<meta property="article:modified_time" content="2020-03-25T09:24:58.825Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -168,244 +172,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Java常用工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Stream流和方法引用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">Java常用工具</a>
+    <h1 class="article-title" itemprop="name">
+      Stream流和方法引用
     </h1>
   
 
         
-        <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-  	<time datetime="2020-03-16T02:40:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+        <a href="/2020/03/25/Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-03-25T02:08:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h3 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h3><ul>
-<li>应用程序接口，在Java中指的是<strong>API文档</strong>，通常叫“Java文档”，是Java中提供的类的使用说明书</li>
-<li>Java中组件的层次结构：模块（module）–&gt;包（package）–&gt;类或接口（class/interface）</li>
-<li>module是从Java9起提供的一种Java基础组件，是包的容器<ul>
-<li>JavaSE Modules：Java语言的核心类库，其名下的模块名多以java开头</li>
-<li>JDK Modules：Java开发工具相关内容，其名下的模块名多以jdk开头
-        
-      
+        <h2 id="获取Stream流"><a href="#获取Stream流" class="headerlink" title="获取Stream流"></a>获取Stream流</h2><ul>
+<li>获取一个流非常简单，有以下几种常用的方式：<ul>
+<li>所有的<strong>Collection **集合都可以通过</strong>stream 默认方法获取流<strong>；</strong>default Stream<E> stream​()**。但Map集合不是Collection的子接口。</li>
+<li>Stream 接口的静态方法<strong>of **可以获取数组对应的流。</strong>static <T> Stream<T> of​(T… values)**。参数是一个可变参数,那么我们就可以传递一个数组<a id="more"></a>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/16/%E6%8E%A5%E5%8F%A3/">接口</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/16/%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2020-03-16T01:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="接口概述"><a href="#接口概述" class="headerlink" title="接口概述"></a>接口概述</h2><ul>
-<li>概述：接口技术用于描述类具体有什么功能，但并不给出具体实现，类要遵从接口描述的统一规则进行定义，所以接口是对外提供的一组规则、标准（和抽象类相似，但比抽象类还<strong>抽象</strong>。）</li>
-<li>定义接口：使用关键字interface：   <strong>interface</strong> 接口名{}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Smoking&#123;</span><br><span class="line">	public abstract void smoke();		&#x2F;&#x2F;系统默认会写public abstract；只有方法名，没有方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>类和接口是<strong>实现</strong>关系，用implements表示：   <strong>class</strong> 类名 <strong>implements</strong> 接口名（可以有多个）
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/16/%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象——多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/">面向对象——多态</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/" class="archive-article-date">
-  	<time datetime="2020-03-15T08:04:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="多态的概述"><a href="#多态的概述" class="headerlink" title="多态的概述"></a>多态的概述</h2><ul>
-<li>即<strong>多种状态</strong>，同一对象在不同情况下表现出不同的状态或行为。（针对某个类型的方法调用，其真正执行的方法取决于运行时期实际类型的方法）</li>
-<li>实现多态的步骤：<ul>
-<li>要有继承（或实现）关系</li>
-<li>要有方法重写</li>
-<li><strong>父类引用指向子类对象</strong>（is a关系）</li>
+</li>
 </ul>
 </li>
-<li>使用场景：父类型作为形参的数据类型，可以接收任意子类对象
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象——继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF/">面向对象——继承</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF/" class="archive-article-date">
-  	<time datetime="2020-03-15T03:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="继承的概述"><a href="#继承的概述" class="headerlink" title="继承的概述"></a>继承的概述</h2><ul>
-<li>让类与类之间产生父子关系<ul>
-<li>被继承的类叫做父类（基类、超类）</li>
-<li>继承的类叫做子类（派生类）</li>
 </ul>
-</li>
-<li>格式（extends）</li>
-<li>子类拥有父类的非私有成员（成员变量、成员方法）
-        
+<h2 id="Stream流常用方法"><a href="#Stream流常用方法" class="headerlink" title="Stream流常用方法"></a>Stream流常用方法</h2><ul>
+<li><strong>延迟方法</strong>：返回值类型仍然是Stream 接口自身类型的方法，因此支持链式调用。（除了终结方法外，其余方法均为延迟方法。）</li>
+<li><strong>终结方法</strong>：返回值类型不再是Stream 接口自身类型的方法，因此不再支持类似StringBuilder 那样的链式调用。如<strong>count 和forEach 方法</strong>。</li>
+<li><strong>forEach方法</strong>遍历流中的数据，<strong>终结方法</strong>。<strong>void forEach(Consumer&lt;? super T&gt; action);</strong>该方法接收一个Consumer 接口函数，会将每一个流元素交给该函数进行处理。</li>
+<li>可以通过<strong>filter 方法</strong>将一个流转换成另一个子集流。<strong>Stream<T> filter(Predicate&lt;? super T&gt; predicate);</strong>该接口接收一个Predicate 函数式接口参数（可以是一个Lambda或方法引用）作为筛选条件。</li>
+<li>如果需要将流中的元素映射到另一个流中，可以使用<strong>map 方法</strong>。方法签名：<strong><R> Stream<R> map(Function&lt;? super T, ? extends R&gt; mapper);</strong>。该接口需要一个Function 函数式接口参数，可以将当前流中的T类型数据转换为另一种R类型的流。</li>
+<li>正如旧集合Collection 当中的size 方法一样，<strong>流提供count 方法</strong>（<strong>终结方法</strong>）来数一数其中的元素个数。该方法返回一个long值代表元素个数（不再像旧集合那样是int值）<strong>long count();</strong></li>
+<li><strong>limit 方法</strong>可以对流进行截取，只取用前n个。<strong>Stream<T> limit(long maxSize);</strong>。参数是一个long型，如果集合当前长度大于参数则进行截取；否则不进行操作。</li>
+<li>如果希望跳过前几个元素，可以使用<strong>skip 方法</strong>获取一个截取之后的新流：<strong>Stream<T> skip(long n);</strong>如果流的当前长度大于n，则跳过前n个；否则将会得到一个长度为0的空流。</li>
+<li>如果有两个流，希望合并成为一个流，那么可以使用Stream 接口的<strong>静态方法concat **：</strong>static <T> Stream<T> concat(Stream&lt;? extends T&gt; a, Stream&lt;? extends T&gt; b)**。这是一个静态方法，与java.lang.String 当中的concat 方法是不同的。</li>
+</ul>
+<h2 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h2><ul>
+<li>如果我们在Lambda中所指定的操作方案，已经有地方存在相同方案。因此在1对象和方法都已经存在的前提下，可以使用<strong>双冒号::</strong>简化Lambda表达式，即为<strong>方法引用</strong></li>
+<li>注意：注:Lambda 中传递的参数一定是方法引用中的那个方法可以接收的类型,否则会抛出异常</li>
+<li>通过对象名引用成员方法：<strong>对象::方法名</strong>（前提是对象和方法都已存在）</li>
+<li>通过类名引用静态方法：<strong>类名::成员方法</strong>（前提是类已存在，静态成员方法也已存在）</li>
+<li>通过super引用成员方法：如果存在继承关系，当Lambda中需要出现super调用时，也可以使用方法引用进行替代。<strong>super::父类成员方法</strong>（父类和父类的成员方法都存在）。</li>
+<li>通过this引用成员方法：this代表当前对象，如果需要引用的方法就是当前类中的成员方法，那么可以使用“<strong>this::成员方法</strong>”的格式来使用方法引用。</li>
+<li>类的构造器引用：由于构造器的名称与类名完全一样，并不固定。所以构造器引用使用*<em>类名称::new *</em>的格式表示。</li>
+<li>数组的构造器引用：<strong>数组类型::new</strong>，如“int[]::new”。</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢您对我的支持！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -414,16 +264,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/25/Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/03/25/junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          junit单元测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数式接口</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -438,413 +356,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象——封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/14/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%B0%81%E8%A3%85/">面向对象——封装</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/14/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%B0%81%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-03-14T10:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="面向对象思想概述"><a href="#面向对象思想概述" class="headerlink" title="面向对象思想概述"></a>面向对象思想概述</h2><ul>
-<li><p>面向对象思想的特点：更符合人们思考习惯的思想，把复杂的事情简单化，把人们从执行者变成了指挥者</p>
-</li>
-<li><p>面向对象的程序开发：就是不断的找对象、使用对象、指挥对象做事情的过程。没有对象？创建一个</p>
-</li>
-<li><p>面向对象思想三大特征：<strong>封装</strong>（encapsulation）、<strong>继承</strong>（inheritance）、<strong>多态</strong>（polymorphism）。多态的前提是继承，继承的前提是封装。</p>
-</li>
-<li><p>Java中用“类”描述事物，类主要由属性和行为构成，把一系列相关事物的共同特征提取出来的过程叫抽象，对象是一类事物的某个具体存在。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/14/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94%E2%80%94%E5%B0%81%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取Stream流"><span class="toc-number">1.</span> <span class="toc-text">获取Stream流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream流常用方法"><span class="toc-number">2.</span> <span class="toc-text">Stream流常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法引用"><span class="toc-number">3.</span> <span class="toc-text">方法引用</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-流程控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/14/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">流程控制</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/14/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-03-14T03:59:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><ul>
-<li><p>输入：</p>
-<ul>
-<li>第一步：导包。import java.util.Scanner;    (位置在class定义上面）</li>
-<li>第二步：创建对象。Scanner sc = new Scanner(System.in);</li>
-<li>第三步：接收数据。int x = sc.nextInt();接收整数，    String name = sc.nextLine();接收字符串
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/14/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%BF%90%E7%AE%97/">运算</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="算术运算（-–）"><a href="#算术运算（-–）" class="headerlink" title="算术运算（+ - * / % ++ –）"></a>算术运算（+ - * / % ++ –）</h2><ol>
-<li>整数运算时，永远是精准的，两个整数相除只能得到结果的整数部分。但计算结果如果超出了整数的范围限制，则会溢出（奇怪结果，并非报错），可转型为long。整数运算的结果会自动提升类型，可以强制转型，但可能出错，因此不必为了节省内存使用byte和short。另外，整数可以进行位运算和位移运算。</li>
-<li>自增自减运算在单独使用时，放在变量前后都一样。参与运算时，++n表示先加1再引用n,n++表示先引用n再加1。
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据类型和变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">数据类型和变量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>数据类型包括基本数据类型和引用数据类型，基本数据类型是CPU可以直接进行运算的类型，引用数据类型有类（class）、接口（interface）、数组（[])等。Java中的基本数据类型如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java程序基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">Java程序基础</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-03-13T09:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><ul>
-<li>单行注释：<br>// 注释文字</li>
-<li>多行注释：<br>/* 注释文字 */</li>
-<li>文档注释（解释类和方法对象，可自动创建文档）：<br>/** 注释文字 */
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">认识Java</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/" class="archive-article-date">
-  	<time datetime="2020-03-13T05:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java介于编译型语言和解释型语言之间。编译型语言是将代码直接编译成机器码，需要编译出每种平台对应的机器码；解释型语言由解释器加载源码。Java将代码编译成“字节码”，针对不同平台编写虚拟机，虚拟机需要不同平台按照Java虚拟机规范开发。Java代码可以实现一次编写，到处运行。</p>
-<p>Java SE是标准版，也是核心，在此基础上Java EE增加了大量的API和库，以方便开发Web应用、数据库、消息服务等，两者的虚拟机完全相同。Java ME属于“瘦身版“。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -867,8 +404,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

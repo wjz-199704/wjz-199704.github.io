@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="王记宗的博客">
 <meta property="og:description" content="接口概述 概述：接口技术用于描述类具体有什么功能，但并不给出具体实现，类要遵从接口描述的统一规则进行定义，所以接口是对外提供的一组规则、标准（和抽象类相似，但比抽象类还抽象。） 定义接口：使用关键字interface：   interface 接口名{}123public interface Smoking&amp;#123;	public abstract void smoke();		&#x2F;&amp;#">
 <meta property="article:published_time" content="2020-03-16T01:54:58.000Z">
-<meta property="article:modified_time" content="2020-03-16T04:01:47.899Z">
+<meta property="article:modified_time" content="2020-04-01T13:11:29.153Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -205,10 +205,10 @@
 <li>实现体现的是“<strong>like a</strong>”的关系，接口中定义<strong>扩展功能</strong></li>
 </ul>
 </li>
-<li>接口成员变量的特点：接口<strong>没有成员变量</strong>，只有共有的、静态的常量：<strong>public static final</strong> 常量名 = 常量值;   （修饰符系统默认写）</li>
+<li>接口成员变量的特点：接口<strong>没有成员变量</strong>，只有公有的、静态的常量：<strong>public static final</strong> 常量名 = 常量值;   （修饰符系统默认写）</li>
 <li>接口成员方法的特点：<ul>
 <li>JDK7以前只有公有的、抽象方法：<strong>public abstract</strong> 返回值类型 方法名();   （修饰符系统默认写）</li>
-<li>JDK8以后，可以直接有默认方法和静态方法：<strong>public default</strong> 返回值类型 方法名() {}    <strong>static</strong> 返回值类型 方法名() {}</li>
+<li>JDK8以后，可以有默认方法和静态方法：<strong>public default</strong> 返回值类型 方法名() {}    <strong>static</strong> 返回值类型 方法名() {}</li>
 <li>JDK9以后，可以有私有方法：<strong>private</strong> 返回值类型 方法名() {}</li>
 </ul>
 </li>

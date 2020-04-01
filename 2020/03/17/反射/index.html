@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="王记宗的博客">
 <meta property="og:description" content="概述 简介：在程序运行过程中分析类的一种能力 反射的作用：">
 <meta property="article:published_time" content="2020-03-17T10:26:31.000Z">
-<meta property="article:modified_time" content="2020-03-17T15:14:33.130Z">
+<meta property="article:modified_time" content="2020-03-25T14:01:51.597Z">
 <meta property="article:author" content="王记宗">
 <meta name="twitter:card" content="summary">
   
@@ -216,17 +216,26 @@
 </ul>
 <h2 id="Class对象"><a href="#Class对象" class="headerlink" title="Class对象"></a>Class对象</h2><ul>
 <li><strong>类加载器（ClassLoader）</strong>：负责将<strong>类的字节码文件对象（.class文件）加载到内存中</strong>，并生成对应的<strong>Class对象</strong>（java.lang.Class类的对象，也叫字节码文件对象，每个Class对象对应一个字节码文件）</li>
-<li>类的加载时机（第一次使用类中的成员时，）：<ul>
+<li>类的加载时机（第一次使用类中的成员时，但同一个字节码文件对象在一次程序运行过程中，只会被加载一次）：<ul>
 <li>创建类的实例，如Student stu = new Student();</li>
 <li>访问类的静态成员，如Calendar.getInstance();</li>
 <li>初始化类的子类，如class User extends Person {}    User user = new User();//先加载父类</li>
 <li>反射方式创建类的Class对象，如Class clazz = Class.forName(“类的正名”);//正名：包名+类名，如cn.itcast.demo1.Student</li>
 </ul>
 </li>
-<li>获取Class对象的三种方式：<ul>
-<li>Object类的getClass()方法：Class clazz = 对象名.getClass();</li>
-<li>类的静态属性：Class clazz = 类名.class;</li>
-<li>Class类的静态方法：Class clazz = Class.forName(“类的正名”);（类的正名快速获取，右击类名，Copy Reference）</li>
+<li><strong>获取Class对象</strong>的三种方式（同一个字节码文件，不论哪种方式获取的Class对象都是同一个）：<ul>
+<li>Class类的静态方法：Class clazz = <strong>Class.forName(“类的正名”);</strong>（类的正名快速获取，右击类名，Copy Reference）<ul>
+<li>多用于配置文件，有类名定义在配置文件中。读取文件，加载类</li>
+</ul>
+</li>
+<li>类的静态属性：Class clazz = <strong>类名.class</strong>;<ul>
+<li>多用于参数的传递</li>
+</ul>
+</li>
+<li>Object类的getClass()方法：Class clazz = <strong>对象名.getClass()</strong>;<ul>
+<li>多用于对象的获取字节码方法</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -240,7 +249,8 @@
 </li>
 <li>Constructor的常用方法：<ul>
 <li><strong>String getName()</strong>//返回构造器的名字，看是那个类的构造</li>
-<li><strong>T newInstance(Object…initargs)</strong>//使用此构造函数和指定参数创建并初始化对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Constructor con1 &#x3D; clazz.getConstructor();			&#x2F;&#x2F;获取公共的无参构造</span><br><span class="line">Constructor con2 &#x3D; clazz.getConstructor(String.class);		&#x2F;&#x2F;获取公共的带参构造</span><br><span class="line">Constructor con3 &#x3D; clazz.getDeclaredConstructor(int.class);	&#x2F;&#x2F;获取私有的带参构造</span><br><span class="line">Constructor[] cons &#x3D; clazz.getConstructors();			&#x2F;&#x2F;获取所有公共的构造函数</span><br><span class="line">String name &#x3D; con2.getName();		&#x2F;&#x2F;返回Class_reflect.Student</span><br><span class="line">Student stu &#x3D; (Student)con2.newInstance(&quot;张三&quot;);	&#x2F;&#x2F;Object对象需要向下转型</span><br></pre></td></tr></table></figure>
+<li><strong>T newInstance(Object…initargs)</strong>//使用此构造函数和指定参数创建并初始化对象</li>
+<li><strong>Class.newInstance();</strong>//直接创建空参构造<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Constructor con1 &#x3D; clazz.getConstructor();			&#x2F;&#x2F;获取公共的无参构造</span><br><span class="line">Constructor con2 &#x3D; clazz.getConstructor(String.class);		&#x2F;&#x2F;获取公共的带参构造</span><br><span class="line">Constructor con3 &#x3D; clazz.getDeclaredConstructor(int.class);	&#x2F;&#x2F;获取私有的带参构造</span><br><span class="line">Constructor[] cons &#x3D; clazz.getConstructors();			&#x2F;&#x2F;获取所有公共的构造函数</span><br><span class="line">String name &#x3D; con2.getName();		&#x2F;&#x2F;返回Class_reflect.Student</span><br><span class="line">Student stu &#x3D; (Student)con2.newInstance(&quot;张三&quot;);	&#x2F;&#x2F;Object对象需要向下转型</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -250,7 +260,7 @@
 <li><strong>Method对象</strong>：方法对象，属于java.base模块，java.lang.reflect包</li>
 <li>通过Class对象获取<strong>方法</strong>：<ul>
 <li><strong>getMethod(String name, Class&lt;?&gt;…parameterTypes)</strong>//返回一个Method对象，仅公共成员方法</li>
-<li><strong>getDeclaredMethod(String, Class&lt;?&gt;…)</strong>//返回一个Method对象，可获取私有成员方法</li>
+<li><strong>getDeclaredMethod(s)(String, Class&lt;?&gt;…)</strong>//返回一个Method对象（或所有），可获取私有成员方法</li>
 <li><strong>getMethods()</strong>//返回此类所有（不含私有方法的数组）</li>
 </ul>
 </li>
@@ -267,17 +277,21 @@
 <li><strong>Field对象</strong>：域（属性、成员变量）对象，属于java.base模块，java.lang.reflect包</li>
 <li>通过Class对象获取<strong>属性</strong>：<ul>
 <li><strong>getField(String name)</strong>//返回一个Field对象，仅公共属性</li>
+<li><strong>getFields()</strong>//返回所有公共属性</li>
 <li><strong>getDeclaredField(String name)</strong>//返回一个Field对象，可获取私有属性</li>
 <li><strong>getDeclaredFields()</strong>//返回此类所有（含私有）属性的数组</li>
 </ul>
 </li>
 <li>Field的常用方法：<ul>
 <li><strong>void set(Object obj, Object value)</strong>//设置obj对象的指定属性值为value</li>
-<li><strong>void setAccessible(boolean flag)</strong>//将此属性的访问性设置为指定布尔值（是否开启暴力反射）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Student stu &#x3D; (Student)clazz.getConstructor().newInstance();	&#x2F;&#x2F;创建类（链式编程）</span><br><span class="line">Field field1 &#x3D; clazz.getField(&quot;name&quot;);</span><br><span class="line">field1.set(stu, &quot;张无忌&quot;);</span><br><span class="line">Field field2 &#x3D; clazz.getDeclaredField(&quot;age&quot;);</span><br><span class="line">field2.setAccessible(true);</span><br><span class="line">field2.set(stu, 30);</span><br></pre></td></tr></table></figure></li>
+<li><strong>Object value get(obj)</strong>//获取obj对象的属性值value</li>
+<li><strong>void setAccessible(boolean flag)</strong>//将此属性的访问性设置为指定布尔值（是否开启暴力反射）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;Class_reflect.Student&quot;);		&#x2F;&#x2F;获取字节码文件对象</span><br><span class="line">Student stu &#x3D; (Student)clazz.getConstructor().newInstance();	&#x2F;&#x2F;创建类（链式编程）</span><br><span class="line">Field field1 &#x3D; clazz.getField(&quot;name&quot;);</span><br><span class="line">field1.set(stu, &quot;张无忌&quot;);</span><br><span class="line">Field field2 &#x3D; clazz.getDeclaredField(&quot;age&quot;);</span><br><span class="line">field2.setAccessible(true);</span><br><span class="line">field2.set(stu, 30);</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 </li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;写一个“框架”，不改变任何代码的前提下，可以创建类的对象，并执行其中的任意方法</span><br><span class="line">public static void main(String[] args) throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException &#123;</span><br><span class="line">        &#x2F;&#x2F;1.加载配置文件</span><br><span class="line">        &#x2F;&#x2F;1.1创建Properties对象</span><br><span class="line">        Properties pro &#x3D; new Properties();</span><br><span class="line">        &#x2F;&#x2F;1.2加载配置文件，转换为一个集合</span><br><span class="line">        &#x2F;&#x2F;1.2.1获取class目录下的配置文件</span><br><span class="line">        ClassLoader classLoader &#x3D; ReflectTest.class.getClassLoader();</span><br><span class="line">        InputStream is &#x3D; classLoader.getResourceAsStream(&quot;pro.properties&quot;);</span><br><span class="line">        pro.load(is);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;2.获取配置文件中定义的数据</span><br><span class="line">        String className &#x3D; pro.getProperty(&quot;className&quot;);</span><br><span class="line">        String methodName &#x3D; pro.getProperty(&quot;methodName&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;3.加载该类进内存</span><br><span class="line">        Class cls &#x3D; Class.forName(className);</span><br><span class="line">        &#x2F;&#x2F;4.创建对象</span><br><span class="line">        Object o &#x3D; cls.newInstance();</span><br><span class="line">        &#x2F;&#x2F;5.获取方法对象</span><br><span class="line">        Method method &#x3D; cls.getMethod(methodName);</span><br><span class="line">        &#x2F;&#x2F;6.执行方法</span><br><span class="line">        method.invoke(o);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
 
       
