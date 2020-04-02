@@ -170,6 +170,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">Java常用类</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-03-16T04:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><ul>
+<li>简介：java.base模块下java.lang包下的Object普通类。类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，因此，所有类都是一个Object（对象）。</li>
+<li>构造方法：Object():构造一个对象，所有子类对象初始化时都会优先调用该方法</li>
+<li>常用成员方法：<ul>
+<li><strong>int hashCode()</strong>: 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同</li>
+<li><strong>Class&lt;?&gt; getClass()</strong>: 返回调用此方法对象的运行时类对象（调用者的字节码文件对象，一个类只有一个字节码文件对象）</li>
+<li><strong>String toString()</strong>: 返回该对象的字符串表示（默认打印的是地址值，地址值的组成：全类名 + @ + 该对象的哈希码的无符号十六进制形式）</li>
+<li><strong>boolean equals()</strong>: 返回其它某个对象是否与此对象“相等”。默认情况下比较两个对象的引用（地址值），建议子类都重写这个方法
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java常用工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -748,70 +818,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/13/Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">认识Java</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/" class="archive-article-date">
-  	<time datetime="2020-03-13T05:30:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java介于编译型语言和解释型语言之间。编译型语言是将代码直接编译成机器码，需要编译出每种平台对应的机器码；解释型语言由解释器加载源码。Java将代码编译成“字节码”，针对不同平台编写虚拟机，虚拟机需要不同平台按照Java虚拟机规范开发。Java代码可以实现一次编写，到处运行。</p>
-<p>Java SE是标准版，也是核心，在此基础上Java EE增加了大量的API和库，以方便开发Web应用、数据库、消息服务等，两者的虚拟机完全相同。Java ME属于“瘦身版“。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%AE%A4%E8%AF%86Java/">展开全文 >></a>
         </p>
       
 

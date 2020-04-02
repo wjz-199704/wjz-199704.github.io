@@ -170,6 +170,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-函数式接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/">函数式接口</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-03-24T07:45:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>函数式接口在java中指：<strong>有且仅有一个抽象方法的接口</strong><br>Java中函数式编程的体现就是Lambda，有且仅有一个抽象方法，Lambda才能顺利地进行推导，Lambda可以被当做是匿名内部类的“语法糖”（但原理不完全相同，Lambda表达式可以少加载class文件）。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -738,76 +801,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/16/%E6%B3%9B%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">Java常用类</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-16T04:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><ul>
-<li>简介：java.base模块下java.lang包下的Object普通类。类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，因此，所有类都是一个Object（对象）。</li>
-<li>构造方法：Object():构造一个对象，所有子类对象初始化时都会优先调用该方法</li>
-<li>常用成员方法：<ul>
-<li><strong>int hashCode()</strong>: 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同</li>
-<li><strong>Class&lt;?&gt; getClass()</strong>: 返回调用此方法对象的运行时类对象（调用者的字节码文件对象，一个类只有一个字节码文件对象）</li>
-<li><strong>String toString()</strong>: 返回该对象的字符串表示（默认打印的是地址值，地址值的组成：全类名 + @ + 该对象的哈希码的无符号十六进制形式）</li>
-<li><strong>boolean equals()</strong>: 返回其它某个对象是否与此对象“相等”。默认情况下比较两个对象的引用（地址值），建议子类都重写这个方法
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
